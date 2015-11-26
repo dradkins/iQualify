@@ -1,0 +1,3338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="iQualifyDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar(max)" />
+          <Property Name="ProfilePic" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="IsPasswordReset" Type="bit" Nullable="false" />
+          <Property Name="NoOfConcurrentViews" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="IsActiveUser" Type="bit" Nullable="false" />
+          <Property Name="ExpirationDateTime" Type="datetime" />
+          <Property Name="IsInstitutionalAccount" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" />
+          <Property Name="CountryCode" Type="varchar(max)" />
+          <Property Name="FlagImage" Type="nvarchar(max)" />
+          <Property Name="ISO2Name" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="ExamTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="LoggedInTracking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="AccessKey" Type="nvarchar(max)" />
+          <Property Name="Token" Type="nvarchar(max)" />
+          <Property Name="DateTimeLoggedIn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Questions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionData" Type="nvarchar(max)" />
+          <Property Name="NoOfOptions" Type="int" />
+          <Property Name="CorrectAnswer" Type="nvarchar(max)" />
+          <Property Name="Reason" Type="nvarchar(max)" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="QuestionTopics">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionId" Type="int" />
+          <Property Name="TopicId" Type="int" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="StudentExamDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentExamId" Type="int" />
+          <Property Name="QuestionId" Type="int" />
+          <Property Name="SelectedAnswer" Type="nvarchar(max)" />
+          <Property Name="CorrectAnswer" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="StudentExams">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentId" Type="nvarchar" MaxLength="128" />
+          <Property Name="ExamTypeId" Type="int" />
+          <Property Name="SubjectId" Type="int" />
+          <Property Name="ExamDateTime" Type="datetime" />
+          <Property Name="TotalQuestions" Type="int" />
+          <Property Name="CorrectAnswers" Type="int" />
+          <Property Name="WrongAnswers" Type="int" />
+          <Property Name="MarksObtained" Type="float" />
+          <Property Name="Percentage" Type="float" />
+          <Property Name="TimeTaken" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentSubjects">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentId" Type="nvarchar" MaxLength="128" />
+          <Property Name="SubjectId" Type="int" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="StudentTopicalExam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentExamId" Type="int" />
+          <Property Name="TopicId" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentYearlyExam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentExamId" Type="int" />
+          <Property Name="YearlyExamId" Type="int" />
+        </EntityType>
+        <EntityType Name="Subjects">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="SubjectCode" Type="nvarchar(max)" />
+          <Property Name="SubjectClass" Type="int" />
+          <Property Name="SubjectType" Type="int" />
+          <Property Name="SubjectDescription" Type="nvarchar(max)" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Topics">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubjectId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="TopicDescription" Type="nvarchar(max)" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="UserLogins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="LoginDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="YearlyExamQuestions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YearlyExamId" Type="int" />
+          <Property Name="QuestionId" Type="int" />
+          <Property Name="QuestionOrder" Type="int" />
+        </EntityType>
+        <EntityType Name="YearlyExams">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubjectId" Type="int" />
+          <Property Name="ExamYear" Type="int" />
+          <Property Name="ExamMonth" Type="int" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="Duration" Type="int" />
+          <Property Name="AGradePercent" Type="float" />
+          <Property Name="BGradePercent" Type="float" />
+          <Property Name="CGradePercent" Type="float" />
+          <Property Name="DGradePercent" Type="float" />
+          <Property Name="EGradePercent" Type="float" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <Association Name="FK__AspNetUse__Count__47DBAE45">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Count__7E37BEF6">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Creat__48CFD27E">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="AspNetUsers1" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers1">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Creat__7F2BE32F">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="AspNetUsers1" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers1">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Updat__00200768">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="AspNetUsers1" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers1">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Updat__49C3F6B7">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="AspNetUsers1" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers1">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExamTypes__Creat__01142BA1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="ExamTypes" Type="Self.ExamTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExamTypes">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExamTypes__Creat__4AB81AF0">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="ExamTypes" Type="Self.ExamTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExamTypes">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExamTypes__Updat__02084FDA">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="ExamTypes" Type="Self.ExamTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExamTypes">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExamTypes__Updat__4BAC3F29">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="ExamTypes" Type="Self.ExamTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExamTypes">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LoggedInT__UserI__02FC7413">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="LoggedInTracking" Type="Self.LoggedInTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoggedInTracking">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LoggedInT__UserI__4CA06362">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="LoggedInTracking" Type="Self.LoggedInTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoggedInTracking">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Questions__Creat__03F0984C">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Questions__Creat__4D94879B">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Questions__Updat__04E4BC85">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Questions__Updat__4E88ABD4">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Creat__05D8E0BE">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="QuestionTopics" Type="Self.QuestionTopics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionTopics">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Creat__4F7CD00D">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="QuestionTopics" Type="Self.QuestionTopics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionTopics">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Quest__06CD04F7">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="0..1" />
+          <End Role="QuestionTopics" Type="Self.QuestionTopics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionTopics">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Quest__5070F446">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="0..1" />
+          <End Role="QuestionTopics" Type="Self.QuestionTopics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionTopics">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Topic__07C12930">
+          <End Role="Topics" Type="Self.Topics" Multiplicity="0..1" />
+          <End Role="QuestionTopics" Type="Self.QuestionTopics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topics">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionTopics">
+              <PropertyRef Name="TopicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Topic__5165187F">
+          <End Role="Topics" Type="Self.Topics" Multiplicity="0..1" />
+          <End Role="QuestionTopics" Type="Self.QuestionTopics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topics">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionTopics">
+              <PropertyRef Name="TopicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Updat__08B54D69">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="QuestionTopics" Type="Self.QuestionTopics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionTopics">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Updat__52593CB8">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="QuestionTopics" Type="Self.QuestionTopics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionTopics">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentEx__ExamT__0B91BA14">
+          <End Role="ExamTypes" Type="Self.ExamTypes" Multiplicity="0..1" />
+          <End Role="StudentExams" Type="Self.StudentExams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExamTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExams">
+              <PropertyRef Name="ExamTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentEx__ExamT__5535A963">
+          <End Role="ExamTypes" Type="Self.ExamTypes" Multiplicity="0..1" />
+          <End Role="StudentExams" Type="Self.StudentExams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExamTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExams">
+              <PropertyRef Name="ExamTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentEx__Quest__09A971A2">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="0..1" />
+          <End Role="StudentExamDetails" Type="Self.StudentExamDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExamDetails">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentEx__Quest__534D60F1">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="0..1" />
+          <End Role="StudentExamDetails" Type="Self.StudentExamDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExamDetails">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentEx__Stude__0A9D95DB">
+          <End Role="StudentExams" Type="Self.StudentExams" Multiplicity="0..1" />
+          <End Role="StudentExamDetails" Type="Self.StudentExamDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExamDetails">
+              <PropertyRef Name="StudentExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentEx__Stude__5441852A">
+          <End Role="StudentExams" Type="Self.StudentExams" Multiplicity="0..1" />
+          <End Role="StudentExamDetails" Type="Self.StudentExamDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExamDetails">
+              <PropertyRef Name="StudentExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentEx__Subje__0C85DE4D">
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+          <End Role="StudentExams" Type="Self.StudentExams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExams">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentEx__Subje__5629CD9C">
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+          <End Role="StudentExams" Type="Self.StudentExams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExams">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentSu__Creat__0D7A0286">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="StudentSubjects" Type="Self.StudentSubjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentSubjects">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentSu__Creat__5812160E">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="StudentSubjects" Type="Self.StudentSubjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentSubjects">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentSu__Subje__0E6E26BF">
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+          <End Role="StudentSubjects" Type="Self.StudentSubjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentSubjects">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentSu__Subje__59063A47">
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+          <End Role="StudentSubjects" Type="Self.StudentSubjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentSubjects">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentSu__Updat__0F624AF8">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="StudentSubjects" Type="Self.StudentSubjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentSubjects">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentSu__Updat__59FA5E80">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="StudentSubjects" Type="Self.StudentSubjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentSubjects">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentTo__Stude__10566F31">
+          <End Role="StudentExams" Type="Self.StudentExams" Multiplicity="0..1" />
+          <End Role="StudentTopicalExam" Type="Self.StudentTopicalExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentTopicalExam">
+              <PropertyRef Name="StudentExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentTo__Stude__5BE2A6F2">
+          <End Role="StudentExams" Type="Self.StudentExams" Multiplicity="0..1" />
+          <End Role="StudentTopicalExam" Type="Self.StudentTopicalExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentTopicalExam">
+              <PropertyRef Name="StudentExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentTo__Topic__114A936A">
+          <End Role="Topics" Type="Self.Topics" Multiplicity="0..1" />
+          <End Role="StudentTopicalExam" Type="Self.StudentTopicalExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topics">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentTopicalExam">
+              <PropertyRef Name="TopicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentTo__Topic__5CD6CB2B">
+          <End Role="Topics" Type="Self.Topics" Multiplicity="0..1" />
+          <End Role="StudentTopicalExam" Type="Self.StudentTopicalExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topics">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentTopicalExam">
+              <PropertyRef Name="TopicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentYe__Stude__123EB7A3">
+          <End Role="StudentExams" Type="Self.StudentExams" Multiplicity="0..1" />
+          <End Role="StudentYearlyExam" Type="Self.StudentYearlyExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentYearlyExam">
+              <PropertyRef Name="StudentExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentYe__Stude__5DCAEF64">
+          <End Role="StudentExams" Type="Self.StudentExams" Multiplicity="0..1" />
+          <End Role="StudentYearlyExam" Type="Self.StudentYearlyExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentYearlyExam">
+              <PropertyRef Name="StudentExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentYe__Yearl__1332DBDC">
+          <End Role="YearlyExams" Type="Self.YearlyExams" Multiplicity="0..1" />
+          <End Role="StudentYearlyExam" Type="Self.StudentYearlyExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YearlyExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentYearlyExam">
+              <PropertyRef Name="YearlyExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentYe__Yearl__5EBF139D">
+          <End Role="YearlyExams" Type="Self.YearlyExams" Multiplicity="0..1" />
+          <End Role="StudentYearlyExam" Type="Self.StudentYearlyExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YearlyExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentYearlyExam">
+              <PropertyRef Name="YearlyExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subjects__Create__14270015">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subjects">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subjects__Create__5FB337D6">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subjects">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subjects__Update__151B244E">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subjects">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subjects__Update__60A75C0F">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subjects">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Topics__CreatedB__160F4887">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Topics" Type="Self.Topics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Topics">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Topics__CreatedB__619B8048">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Topics" Type="Self.Topics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Topics">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Topics__SubjectI__17036CC0">
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="1" />
+          <End Role="Topics" Type="Self.Topics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Topics">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Topics__SubjectI__628FA481">
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="1" />
+          <End Role="Topics" Type="Self.Topics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Topics">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Topics__UpdatedB__17F790F9">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Topics" Type="Self.Topics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Topics">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Topics__UpdatedB__6383C8BA">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Topics" Type="Self.Topics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Topics">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Creat__1AD3FDA4">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="YearlyExams" Type="Self.YearlyExams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExams">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Creat__6754599E">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="YearlyExams" Type="Self.YearlyExams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExams">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Quest__18EBB532">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="0..1" />
+          <End Role="YearlyExamQuestions" Type="Self.YearlyExamQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExamQuestions">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Quest__656C112C">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="0..1" />
+          <End Role="YearlyExamQuestions" Type="Self.YearlyExamQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExamQuestions">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Subje__1BC821DD">
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+          <End Role="YearlyExams" Type="Self.YearlyExams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExams">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Subje__68487DD7">
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+          <End Role="YearlyExams" Type="Self.YearlyExams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExams">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Updat__1CBC4616">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="YearlyExams" Type="Self.YearlyExams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExams">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Updat__693CA210">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="YearlyExams" Type="Self.YearlyExams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExams">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Yearl__19DFD96B">
+          <End Role="YearlyExams" Type="Self.YearlyExams" Multiplicity="0..1" />
+          <End Role="YearlyExamQuestions" Type="Self.YearlyExamQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YearlyExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExamQuestions">
+              <PropertyRef Name="YearlyExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Yearl__66603565">
+          <End Role="YearlyExams" Type="Self.YearlyExams" Multiplicity="0..1" />
+          <End Role="YearlyExamQuestions" Type="Self.YearlyExamQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YearlyExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExamQuestions">
+              <PropertyRef Name="YearlyExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentExams_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="StudentExams" Type="Self.StudentExams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExams">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentSubjects_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="StudentSubjects" Type="Self.StudentSubjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentSubjects">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLogins_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="UserLogins" Type="Self.UserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="iQualifyDBModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExamTypes" EntityType="Self.ExamTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoggedInTracking" EntityType="Self.LoggedInTracking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuestionTopics" EntityType="Self.QuestionTopics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentExamDetails" EntityType="Self.StudentExamDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentExams" EntityType="Self.StudentExams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentSubjects" EntityType="Self.StudentSubjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentTopicalExam" EntityType="Self.StudentTopicalExam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentYearlyExam" EntityType="Self.StudentYearlyExam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subjects" EntityType="Self.Subjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Topics" EntityType="Self.Topics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLogins" EntityType="Self.UserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YearlyExamQuestions" EntityType="Self.YearlyExamQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YearlyExams" EntityType="Self.YearlyExams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__AspNetUse__Count__47DBAE45" Association="Self.FK__AspNetUse__Count__47DBAE45">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Count__7E37BEF6" Association="Self.FK__AspNetUse__Count__7E37BEF6">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Creat__48CFD27E" Association="Self.FK__AspNetUse__Creat__48CFD27E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsers1" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Creat__7F2BE32F" Association="Self.FK__AspNetUse__Creat__7F2BE32F">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsers1" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Updat__00200768" Association="Self.FK__AspNetUse__Updat__00200768">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsers1" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Updat__49C3F6B7" Association="Self.FK__AspNetUse__Updat__49C3F6B7">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsers1" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExamTypes__Creat__01142BA1" Association="Self.FK__ExamTypes__Creat__01142BA1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ExamTypes" EntitySet="ExamTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExamTypes__Creat__4AB81AF0" Association="Self.FK__ExamTypes__Creat__4AB81AF0">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ExamTypes" EntitySet="ExamTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExamTypes__Updat__02084FDA" Association="Self.FK__ExamTypes__Updat__02084FDA">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ExamTypes" EntitySet="ExamTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExamTypes__Updat__4BAC3F29" Association="Self.FK__ExamTypes__Updat__4BAC3F29">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ExamTypes" EntitySet="ExamTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LoggedInT__UserI__02FC7413" Association="Self.FK__LoggedInT__UserI__02FC7413">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="LoggedInTracking" EntitySet="LoggedInTracking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LoggedInT__UserI__4CA06362" Association="Self.FK__LoggedInT__UserI__4CA06362">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="LoggedInTracking" EntitySet="LoggedInTracking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Questions__Creat__03F0984C" Association="Self.FK__Questions__Creat__03F0984C">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Questions__Creat__4D94879B" Association="Self.FK__Questions__Creat__4D94879B">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Questions__Updat__04E4BC85" Association="Self.FK__Questions__Updat__04E4BC85">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Questions__Updat__4E88ABD4" Association="Self.FK__Questions__Updat__4E88ABD4">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Creat__05D8E0BE" Association="Self.FK__QuestionT__Creat__05D8E0BE">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="QuestionTopics" EntitySet="QuestionTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Creat__4F7CD00D" Association="Self.FK__QuestionT__Creat__4F7CD00D">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="QuestionTopics" EntitySet="QuestionTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Quest__06CD04F7" Association="Self.FK__QuestionT__Quest__06CD04F7">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="QuestionTopics" EntitySet="QuestionTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Quest__5070F446" Association="Self.FK__QuestionT__Quest__5070F446">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="QuestionTopics" EntitySet="QuestionTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Topic__07C12930" Association="Self.FK__QuestionT__Topic__07C12930">
+            <End Role="Topics" EntitySet="Topics" />
+            <End Role="QuestionTopics" EntitySet="QuestionTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Topic__5165187F" Association="Self.FK__QuestionT__Topic__5165187F">
+            <End Role="Topics" EntitySet="Topics" />
+            <End Role="QuestionTopics" EntitySet="QuestionTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Updat__08B54D69" Association="Self.FK__QuestionT__Updat__08B54D69">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="QuestionTopics" EntitySet="QuestionTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Updat__52593CB8" Association="Self.FK__QuestionT__Updat__52593CB8">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="QuestionTopics" EntitySet="QuestionTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentEx__ExamT__0B91BA14" Association="Self.FK__StudentEx__ExamT__0B91BA14">
+            <End Role="ExamTypes" EntitySet="ExamTypes" />
+            <End Role="StudentExams" EntitySet="StudentExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentEx__ExamT__5535A963" Association="Self.FK__StudentEx__ExamT__5535A963">
+            <End Role="ExamTypes" EntitySet="ExamTypes" />
+            <End Role="StudentExams" EntitySet="StudentExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentEx__Quest__09A971A2" Association="Self.FK__StudentEx__Quest__09A971A2">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="StudentExamDetails" EntitySet="StudentExamDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentEx__Quest__534D60F1" Association="Self.FK__StudentEx__Quest__534D60F1">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="StudentExamDetails" EntitySet="StudentExamDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentEx__Stude__0A9D95DB" Association="Self.FK__StudentEx__Stude__0A9D95DB">
+            <End Role="StudentExams" EntitySet="StudentExams" />
+            <End Role="StudentExamDetails" EntitySet="StudentExamDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentEx__Stude__5441852A" Association="Self.FK__StudentEx__Stude__5441852A">
+            <End Role="StudentExams" EntitySet="StudentExams" />
+            <End Role="StudentExamDetails" EntitySet="StudentExamDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentEx__Subje__0C85DE4D" Association="Self.FK__StudentEx__Subje__0C85DE4D">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="StudentExams" EntitySet="StudentExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentEx__Subje__5629CD9C" Association="Self.FK__StudentEx__Subje__5629CD9C">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="StudentExams" EntitySet="StudentExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentSu__Creat__0D7A0286" Association="Self.FK__StudentSu__Creat__0D7A0286">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="StudentSubjects" EntitySet="StudentSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentSu__Creat__5812160E" Association="Self.FK__StudentSu__Creat__5812160E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="StudentSubjects" EntitySet="StudentSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentSu__Subje__0E6E26BF" Association="Self.FK__StudentSu__Subje__0E6E26BF">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="StudentSubjects" EntitySet="StudentSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentSu__Subje__59063A47" Association="Self.FK__StudentSu__Subje__59063A47">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="StudentSubjects" EntitySet="StudentSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentSu__Updat__0F624AF8" Association="Self.FK__StudentSu__Updat__0F624AF8">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="StudentSubjects" EntitySet="StudentSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentSu__Updat__59FA5E80" Association="Self.FK__StudentSu__Updat__59FA5E80">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="StudentSubjects" EntitySet="StudentSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentTo__Stude__10566F31" Association="Self.FK__StudentTo__Stude__10566F31">
+            <End Role="StudentExams" EntitySet="StudentExams" />
+            <End Role="StudentTopicalExam" EntitySet="StudentTopicalExam" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentTo__Stude__5BE2A6F2" Association="Self.FK__StudentTo__Stude__5BE2A6F2">
+            <End Role="StudentExams" EntitySet="StudentExams" />
+            <End Role="StudentTopicalExam" EntitySet="StudentTopicalExam" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentTo__Topic__114A936A" Association="Self.FK__StudentTo__Topic__114A936A">
+            <End Role="Topics" EntitySet="Topics" />
+            <End Role="StudentTopicalExam" EntitySet="StudentTopicalExam" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentTo__Topic__5CD6CB2B" Association="Self.FK__StudentTo__Topic__5CD6CB2B">
+            <End Role="Topics" EntitySet="Topics" />
+            <End Role="StudentTopicalExam" EntitySet="StudentTopicalExam" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentYe__Stude__123EB7A3" Association="Self.FK__StudentYe__Stude__123EB7A3">
+            <End Role="StudentExams" EntitySet="StudentExams" />
+            <End Role="StudentYearlyExam" EntitySet="StudentYearlyExam" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentYe__Stude__5DCAEF64" Association="Self.FK__StudentYe__Stude__5DCAEF64">
+            <End Role="StudentExams" EntitySet="StudentExams" />
+            <End Role="StudentYearlyExam" EntitySet="StudentYearlyExam" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentYe__Yearl__1332DBDC" Association="Self.FK__StudentYe__Yearl__1332DBDC">
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+            <End Role="StudentYearlyExam" EntitySet="StudentYearlyExam" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentYe__Yearl__5EBF139D" Association="Self.FK__StudentYe__Yearl__5EBF139D">
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+            <End Role="StudentYearlyExam" EntitySet="StudentYearlyExam" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subjects__Create__14270015" Association="Self.FK__Subjects__Create__14270015">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Subjects" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subjects__Create__5FB337D6" Association="Self.FK__Subjects__Create__5FB337D6">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Subjects" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subjects__Update__151B244E" Association="Self.FK__Subjects__Update__151B244E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Subjects" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subjects__Update__60A75C0F" Association="Self.FK__Subjects__Update__60A75C0F">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Subjects" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Topics__CreatedB__160F4887" Association="Self.FK__Topics__CreatedB__160F4887">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Topics" EntitySet="Topics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Topics__CreatedB__619B8048" Association="Self.FK__Topics__CreatedB__619B8048">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Topics" EntitySet="Topics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Topics__SubjectI__17036CC0" Association="Self.FK__Topics__SubjectI__17036CC0">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="Topics" EntitySet="Topics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Topics__SubjectI__628FA481" Association="Self.FK__Topics__SubjectI__628FA481">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="Topics" EntitySet="Topics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Topics__UpdatedB__17F790F9" Association="Self.FK__Topics__UpdatedB__17F790F9">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Topics" EntitySet="Topics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Topics__UpdatedB__6383C8BA" Association="Self.FK__Topics__UpdatedB__6383C8BA">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Topics" EntitySet="Topics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Creat__1AD3FDA4" Association="Self.FK__YearlyExa__Creat__1AD3FDA4">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Creat__6754599E" Association="Self.FK__YearlyExa__Creat__6754599E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Quest__18EBB532" Association="Self.FK__YearlyExa__Quest__18EBB532">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="YearlyExamQuestions" EntitySet="YearlyExamQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Quest__656C112C" Association="Self.FK__YearlyExa__Quest__656C112C">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="YearlyExamQuestions" EntitySet="YearlyExamQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Subje__1BC821DD" Association="Self.FK__YearlyExa__Subje__1BC821DD">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Subje__68487DD7" Association="Self.FK__YearlyExa__Subje__68487DD7">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Updat__1CBC4616" Association="Self.FK__YearlyExa__Updat__1CBC4616">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Updat__693CA210" Association="Self.FK__YearlyExa__Updat__693CA210">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Yearl__19DFD96B" Association="Self.FK__YearlyExa__Yearl__19DFD96B">
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+            <End Role="YearlyExamQuestions" EntitySet="YearlyExamQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Yearl__66603565" Association="Self.FK__YearlyExa__Yearl__66603565">
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+            <End Role="YearlyExamQuestions" EntitySet="YearlyExamQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentExams_AspNetUsers" Association="Self.FK_StudentExams_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="StudentExams" EntitySet="StudentExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentSubjects_AspNetUsers" Association="Self.FK_StudentSubjects_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="StudentSubjects" EntitySet="StudentSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLogins_AspNetUsers" Association="Self.FK_UserLogins_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="UserLogins" EntitySet="UserLogins" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="iQualifyDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProfilePic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsPasswordReset" Type="Boolean" Nullable="false" />
+          <Property Name="NoOfConcurrentViews" Type="Int32" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" />
+          <Property Name="IsActiveUser" Type="Boolean" Nullable="false" />
+          <Property Name="ExpirationDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsInstitutionalAccount" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__AspNetUse__Count__47DBAE45" FromRole="AspNetUsers" ToRole="Countries" />
+          <NavigationProperty Name="Country1" Relationship="Self.FK__AspNetUse__Count__7E37BEF6" FromRole="AspNetUsers" ToRole="Countries" />
+          <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK__AspNetUse__Creat__48CFD27E" FromRole="AspNetUsers" ToRole="AspNetUsers1" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__AspNetUse__Creat__48CFD27E" FromRole="AspNetUsers1" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers11" Relationship="Self.FK__AspNetUse__Creat__7F2BE32F" FromRole="AspNetUsers" ToRole="AspNetUsers1" />
+          <NavigationProperty Name="AspNetUser2" Relationship="Self.FK__AspNetUse__Creat__7F2BE32F" FromRole="AspNetUsers1" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers12" Relationship="Self.FK__AspNetUse__Updat__00200768" FromRole="AspNetUsers" ToRole="AspNetUsers1" />
+          <NavigationProperty Name="AspNetUser3" Relationship="Self.FK__AspNetUse__Updat__00200768" FromRole="AspNetUsers1" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers13" Relationship="Self.FK__AspNetUse__Updat__49C3F6B7" FromRole="AspNetUsers" ToRole="AspNetUsers1" />
+          <NavigationProperty Name="AspNetUser4" Relationship="Self.FK__AspNetUse__Updat__49C3F6B7" FromRole="AspNetUsers1" ToRole="AspNetUsers" />
+          <NavigationProperty Name="ExamTypes" Relationship="Self.FK__ExamTypes__Creat__01142BA1" FromRole="AspNetUsers" ToRole="ExamTypes" />
+          <NavigationProperty Name="ExamTypes1" Relationship="Self.FK__ExamTypes__Creat__4AB81AF0" FromRole="AspNetUsers" ToRole="ExamTypes" />
+          <NavigationProperty Name="ExamTypes2" Relationship="Self.FK__ExamTypes__Updat__02084FDA" FromRole="AspNetUsers" ToRole="ExamTypes" />
+          <NavigationProperty Name="ExamTypes3" Relationship="Self.FK__ExamTypes__Updat__4BAC3F29" FromRole="AspNetUsers" ToRole="ExamTypes" />
+          <NavigationProperty Name="LoggedInTrackings" Relationship="Self.FK__LoggedInT__UserI__02FC7413" FromRole="AspNetUsers" ToRole="LoggedInTracking" />
+          <NavigationProperty Name="LoggedInTrackings1" Relationship="Self.FK__LoggedInT__UserI__4CA06362" FromRole="AspNetUsers" ToRole="LoggedInTracking" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK__Questions__Creat__03F0984C" FromRole="AspNetUsers" ToRole="Questions" />
+          <NavigationProperty Name="Questions1" Relationship="Self.FK__Questions__Creat__4D94879B" FromRole="AspNetUsers" ToRole="Questions" />
+          <NavigationProperty Name="Questions2" Relationship="Self.FK__Questions__Updat__04E4BC85" FromRole="AspNetUsers" ToRole="Questions" />
+          <NavigationProperty Name="Questions3" Relationship="Self.FK__Questions__Updat__4E88ABD4" FromRole="AspNetUsers" ToRole="Questions" />
+          <NavigationProperty Name="QuestionTopics" Relationship="Self.FK__QuestionT__Creat__05D8E0BE" FromRole="AspNetUsers" ToRole="QuestionTopics" />
+          <NavigationProperty Name="QuestionTopics1" Relationship="Self.FK__QuestionT__Creat__4F7CD00D" FromRole="AspNetUsers" ToRole="QuestionTopics" />
+          <NavigationProperty Name="QuestionTopics2" Relationship="Self.FK__QuestionT__Updat__08B54D69" FromRole="AspNetUsers" ToRole="QuestionTopics" />
+          <NavigationProperty Name="QuestionTopics3" Relationship="Self.FK__QuestionT__Updat__52593CB8" FromRole="AspNetUsers" ToRole="QuestionTopics" />
+          <NavigationProperty Name="StudentSubjects" Relationship="Self.FK__StudentSu__Creat__0D7A0286" FromRole="AspNetUsers" ToRole="StudentSubjects" />
+          <NavigationProperty Name="StudentSubjects1" Relationship="Self.FK__StudentSu__Creat__5812160E" FromRole="AspNetUsers" ToRole="StudentSubjects" />
+          <NavigationProperty Name="StudentSubjects2" Relationship="Self.FK__StudentSu__Updat__0F624AF8" FromRole="AspNetUsers" ToRole="StudentSubjects" />
+          <NavigationProperty Name="StudentSubjects3" Relationship="Self.FK__StudentSu__Updat__59FA5E80" FromRole="AspNetUsers" ToRole="StudentSubjects" />
+          <NavigationProperty Name="Subjects" Relationship="Self.FK__Subjects__Create__14270015" FromRole="AspNetUsers" ToRole="Subjects" />
+          <NavigationProperty Name="Subjects1" Relationship="Self.FK__Subjects__Create__5FB337D6" FromRole="AspNetUsers" ToRole="Subjects" />
+          <NavigationProperty Name="Subjects2" Relationship="Self.FK__Subjects__Update__151B244E" FromRole="AspNetUsers" ToRole="Subjects" />
+          <NavigationProperty Name="Subjects3" Relationship="Self.FK__Subjects__Update__60A75C0F" FromRole="AspNetUsers" ToRole="Subjects" />
+          <NavigationProperty Name="Topics" Relationship="Self.FK__Topics__CreatedB__160F4887" FromRole="AspNetUsers" ToRole="Topics" />
+          <NavigationProperty Name="Topics1" Relationship="Self.FK__Topics__CreatedB__619B8048" FromRole="AspNetUsers" ToRole="Topics" />
+          <NavigationProperty Name="Topics2" Relationship="Self.FK__Topics__UpdatedB__17F790F9" FromRole="AspNetUsers" ToRole="Topics" />
+          <NavigationProperty Name="Topics3" Relationship="Self.FK__Topics__UpdatedB__6383C8BA" FromRole="AspNetUsers" ToRole="Topics" />
+          <NavigationProperty Name="YearlyExams" Relationship="Self.FK__YearlyExa__Creat__1AD3FDA4" FromRole="AspNetUsers" ToRole="YearlyExams" />
+          <NavigationProperty Name="YearlyExams1" Relationship="Self.FK__YearlyExa__Creat__6754599E" FromRole="AspNetUsers" ToRole="YearlyExams" />
+          <NavigationProperty Name="YearlyExams2" Relationship="Self.FK__YearlyExa__Updat__1CBC4616" FromRole="AspNetUsers" ToRole="YearlyExams" />
+          <NavigationProperty Name="YearlyExams3" Relationship="Self.FK__YearlyExa__Updat__693CA210" FromRole="AspNetUsers" ToRole="YearlyExams" />
+          <NavigationProperty Name="StudentExams" Relationship="Self.FK_StudentExams_AspNetUsers" FromRole="AspNetUsers" ToRole="StudentExams" />
+          <NavigationProperty Name="StudentSubjects4" Relationship="Self.FK_StudentSubjects_AspNetUsers" FromRole="AspNetUsers" ToRole="StudentSubjects" />
+          <NavigationProperty Name="UserLogins" Relationship="Self.FK_UserLogins_AspNetUsers" FromRole="AspNetUsers" ToRole="UserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FlagImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ISO2Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__AspNetUse__Count__47DBAE45" FromRole="Countries" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK__AspNetUse__Count__7E37BEF6" FromRole="Countries" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="ExamType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__ExamTypes__Creat__01142BA1" FromRole="ExamTypes" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__ExamTypes__Creat__4AB81AF0" FromRole="ExamTypes" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser2" Relationship="Self.FK__ExamTypes__Updat__02084FDA" FromRole="ExamTypes" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser3" Relationship="Self.FK__ExamTypes__Updat__4BAC3F29" FromRole="ExamTypes" ToRole="AspNetUsers" />
+          <NavigationProperty Name="StudentExams" Relationship="Self.FK__StudentEx__ExamT__0B91BA14" FromRole="ExamTypes" ToRole="StudentExams" />
+          <NavigationProperty Name="StudentExams1" Relationship="Self.FK__StudentEx__ExamT__5535A963" FromRole="ExamTypes" ToRole="StudentExams" />
+        </EntityType>
+        <EntityType Name="LoggedInTracking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="AccessKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateTimeLoggedIn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__LoggedInT__UserI__02FC7413" FromRole="LoggedInTracking" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__LoggedInT__UserI__4CA06362" FromRole="LoggedInTracking" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoOfOptions" Type="Int32" />
+          <Property Name="CorrectAnswer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Questions__Creat__03F0984C" FromRole="Questions" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__Questions__Creat__4D94879B" FromRole="Questions" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser2" Relationship="Self.FK__Questions__Updat__04E4BC85" FromRole="Questions" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser3" Relationship="Self.FK__Questions__Updat__4E88ABD4" FromRole="Questions" ToRole="AspNetUsers" />
+          <NavigationProperty Name="QuestionTopics" Relationship="Self.FK__QuestionT__Quest__06CD04F7" FromRole="Questions" ToRole="QuestionTopics" />
+          <NavigationProperty Name="QuestionTopics1" Relationship="Self.FK__QuestionT__Quest__5070F446" FromRole="Questions" ToRole="QuestionTopics" />
+          <NavigationProperty Name="StudentExamDetails" Relationship="Self.FK__StudentEx__Quest__09A971A2" FromRole="Questions" ToRole="StudentExamDetails" />
+          <NavigationProperty Name="StudentExamDetails1" Relationship="Self.FK__StudentEx__Quest__534D60F1" FromRole="Questions" ToRole="StudentExamDetails" />
+          <NavigationProperty Name="YearlyExamQuestions" Relationship="Self.FK__YearlyExa__Quest__18EBB532" FromRole="Questions" ToRole="YearlyExamQuestions" />
+          <NavigationProperty Name="YearlyExamQuestions1" Relationship="Self.FK__YearlyExa__Quest__656C112C" FromRole="Questions" ToRole="YearlyExamQuestions" />
+        </EntityType>
+        <EntityType Name="QuestionTopic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionId" Type="Int32" />
+          <Property Name="TopicId" Type="Int32" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__QuestionT__Creat__05D8E0BE" FromRole="QuestionTopics" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__QuestionT__Creat__4F7CD00D" FromRole="QuestionTopics" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser2" Relationship="Self.FK__QuestionT__Updat__08B54D69" FromRole="QuestionTopics" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser3" Relationship="Self.FK__QuestionT__Updat__52593CB8" FromRole="QuestionTopics" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Question" Relationship="Self.FK__QuestionT__Quest__06CD04F7" FromRole="QuestionTopics" ToRole="Questions" />
+          <NavigationProperty Name="Question1" Relationship="Self.FK__QuestionT__Quest__5070F446" FromRole="QuestionTopics" ToRole="Questions" />
+          <NavigationProperty Name="Topic" Relationship="Self.FK__QuestionT__Topic__07C12930" FromRole="QuestionTopics" ToRole="Topics" />
+          <NavigationProperty Name="Topic1" Relationship="Self.FK__QuestionT__Topic__5165187F" FromRole="QuestionTopics" ToRole="Topics" />
+        </EntityType>
+        <EntityType Name="StudentExamDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentExamId" Type="Int32" />
+          <Property Name="QuestionId" Type="Int32" />
+          <Property Name="SelectedAnswer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CorrectAnswer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Question" Relationship="Self.FK__StudentEx__Quest__09A971A2" FromRole="StudentExamDetails" ToRole="Questions" />
+          <NavigationProperty Name="Question1" Relationship="Self.FK__StudentEx__Quest__534D60F1" FromRole="StudentExamDetails" ToRole="Questions" />
+          <NavigationProperty Name="StudentExam" Relationship="Self.FK__StudentEx__Stude__0A9D95DB" FromRole="StudentExamDetails" ToRole="StudentExams" />
+          <NavigationProperty Name="StudentExam1" Relationship="Self.FK__StudentEx__Stude__5441852A" FromRole="StudentExamDetails" ToRole="StudentExams" />
+        </EntityType>
+        <EntityType Name="StudentExam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ExamTypeId" Type="Int32" />
+          <Property Name="SubjectId" Type="Int32" />
+          <Property Name="ExamDateTime" Type="DateTime" Precision="3" />
+          <Property Name="TotalQuestions" Type="Int32" />
+          <Property Name="CorrectAnswers" Type="Int32" />
+          <Property Name="WrongAnswers" Type="Int32" />
+          <Property Name="MarksObtained" Type="Double" />
+          <Property Name="Percentage" Type="Double" />
+          <Property Name="TimeTaken" Type="Int32" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_StudentExams_AspNetUsers" FromRole="StudentExams" ToRole="AspNetUsers" />
+          <NavigationProperty Name="ExamType" Relationship="Self.FK__StudentEx__ExamT__0B91BA14" FromRole="StudentExams" ToRole="ExamTypes" />
+          <NavigationProperty Name="ExamType1" Relationship="Self.FK__StudentEx__ExamT__5535A963" FromRole="StudentExams" ToRole="ExamTypes" />
+          <NavigationProperty Name="StudentExamDetails" Relationship="Self.FK__StudentEx__Stude__0A9D95DB" FromRole="StudentExams" ToRole="StudentExamDetails" />
+          <NavigationProperty Name="StudentExamDetails1" Relationship="Self.FK__StudentEx__Stude__5441852A" FromRole="StudentExams" ToRole="StudentExamDetails" />
+          <NavigationProperty Name="Subject" Relationship="Self.FK__StudentEx__Subje__0C85DE4D" FromRole="StudentExams" ToRole="Subjects" />
+          <NavigationProperty Name="Subject1" Relationship="Self.FK__StudentEx__Subje__5629CD9C" FromRole="StudentExams" ToRole="Subjects" />
+          <NavigationProperty Name="StudentTopicalExams" Relationship="Self.FK__StudentTo__Stude__10566F31" FromRole="StudentExams" ToRole="StudentTopicalExam" />
+          <NavigationProperty Name="StudentTopicalExams1" Relationship="Self.FK__StudentTo__Stude__5BE2A6F2" FromRole="StudentExams" ToRole="StudentTopicalExam" />
+          <NavigationProperty Name="StudentYearlyExams" Relationship="Self.FK__StudentYe__Stude__123EB7A3" FromRole="StudentExams" ToRole="StudentYearlyExam" />
+          <NavigationProperty Name="StudentYearlyExams1" Relationship="Self.FK__StudentYe__Stude__5DCAEF64" FromRole="StudentExams" ToRole="StudentYearlyExam" />
+        </EntityType>
+        <EntityType Name="StudentSubject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="SubjectId" Type="Int32" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__StudentSu__Creat__0D7A0286" FromRole="StudentSubjects" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__StudentSu__Creat__5812160E" FromRole="StudentSubjects" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser2" Relationship="Self.FK__StudentSu__Updat__0F624AF8" FromRole="StudentSubjects" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser3" Relationship="Self.FK__StudentSu__Updat__59FA5E80" FromRole="StudentSubjects" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser4" Relationship="Self.FK_StudentSubjects_AspNetUsers" FromRole="StudentSubjects" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Subject" Relationship="Self.FK__StudentSu__Subje__0E6E26BF" FromRole="StudentSubjects" ToRole="Subjects" />
+          <NavigationProperty Name="Subject1" Relationship="Self.FK__StudentSu__Subje__59063A47" FromRole="StudentSubjects" ToRole="Subjects" />
+        </EntityType>
+        <EntityType Name="StudentTopicalExam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentExamId" Type="Int32" />
+          <Property Name="TopicId" Type="Int32" />
+          <NavigationProperty Name="StudentExam" Relationship="Self.FK__StudentTo__Stude__10566F31" FromRole="StudentTopicalExam" ToRole="StudentExams" />
+          <NavigationProperty Name="StudentExam1" Relationship="Self.FK__StudentTo__Stude__5BE2A6F2" FromRole="StudentTopicalExam" ToRole="StudentExams" />
+          <NavigationProperty Name="Topic" Relationship="Self.FK__StudentTo__Topic__114A936A" FromRole="StudentTopicalExam" ToRole="Topics" />
+          <NavigationProperty Name="Topic1" Relationship="Self.FK__StudentTo__Topic__5CD6CB2B" FromRole="StudentTopicalExam" ToRole="Topics" />
+        </EntityType>
+        <EntityType Name="StudentYearlyExam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentExamId" Type="Int32" />
+          <Property Name="YearlyExamId" Type="Int32" />
+          <NavigationProperty Name="StudentExam" Relationship="Self.FK__StudentYe__Stude__123EB7A3" FromRole="StudentYearlyExam" ToRole="StudentExams" />
+          <NavigationProperty Name="StudentExam1" Relationship="Self.FK__StudentYe__Stude__5DCAEF64" FromRole="StudentYearlyExam" ToRole="StudentExams" />
+          <NavigationProperty Name="YearlyExam" Relationship="Self.FK__StudentYe__Yearl__1332DBDC" FromRole="StudentYearlyExam" ToRole="YearlyExams" />
+          <NavigationProperty Name="YearlyExam1" Relationship="Self.FK__StudentYe__Yearl__5EBF139D" FromRole="StudentYearlyExam" ToRole="YearlyExams" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubjectCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubjectClass" Type="Int32" />
+          <Property Name="SubjectType" Type="Int32" />
+          <Property Name="SubjectDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Subjects__Create__14270015" FromRole="Subjects" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__Subjects__Create__5FB337D6" FromRole="Subjects" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser2" Relationship="Self.FK__Subjects__Update__151B244E" FromRole="Subjects" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser3" Relationship="Self.FK__Subjects__Update__60A75C0F" FromRole="Subjects" ToRole="AspNetUsers" />
+          <NavigationProperty Name="StudentExams" Relationship="Self.FK__StudentEx__Subje__0C85DE4D" FromRole="Subjects" ToRole="StudentExams" />
+          <NavigationProperty Name="StudentExams1" Relationship="Self.FK__StudentEx__Subje__5629CD9C" FromRole="Subjects" ToRole="StudentExams" />
+          <NavigationProperty Name="StudentSubjects" Relationship="Self.FK__StudentSu__Subje__0E6E26BF" FromRole="Subjects" ToRole="StudentSubjects" />
+          <NavigationProperty Name="StudentSubjects1" Relationship="Self.FK__StudentSu__Subje__59063A47" FromRole="Subjects" ToRole="StudentSubjects" />
+          <NavigationProperty Name="Topics" Relationship="Self.FK__Topics__SubjectI__17036CC0" FromRole="Subjects" ToRole="Topics" />
+          <NavigationProperty Name="Topics1" Relationship="Self.FK__Topics__SubjectI__628FA481" FromRole="Subjects" ToRole="Topics" />
+          <NavigationProperty Name="YearlyExams" Relationship="Self.FK__YearlyExa__Subje__1BC821DD" FromRole="Subjects" ToRole="YearlyExams" />
+          <NavigationProperty Name="YearlyExams1" Relationship="Self.FK__YearlyExa__Subje__68487DD7" FromRole="Subjects" ToRole="YearlyExams" />
+        </EntityType>
+        <EntityType Name="Topic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TopicDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Topics__CreatedB__160F4887" FromRole="Topics" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__Topics__CreatedB__619B8048" FromRole="Topics" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser2" Relationship="Self.FK__Topics__UpdatedB__17F790F9" FromRole="Topics" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser3" Relationship="Self.FK__Topics__UpdatedB__6383C8BA" FromRole="Topics" ToRole="AspNetUsers" />
+          <NavigationProperty Name="QuestionTopics" Relationship="Self.FK__QuestionT__Topic__07C12930" FromRole="Topics" ToRole="QuestionTopics" />
+          <NavigationProperty Name="QuestionTopics1" Relationship="Self.FK__QuestionT__Topic__5165187F" FromRole="Topics" ToRole="QuestionTopics" />
+          <NavigationProperty Name="StudentTopicalExams" Relationship="Self.FK__StudentTo__Topic__114A936A" FromRole="Topics" ToRole="StudentTopicalExam" />
+          <NavigationProperty Name="StudentTopicalExams1" Relationship="Self.FK__StudentTo__Topic__5CD6CB2B" FromRole="Topics" ToRole="StudentTopicalExam" />
+          <NavigationProperty Name="Subject" Relationship="Self.FK__Topics__SubjectI__17036CC0" FromRole="Topics" ToRole="Subjects" />
+          <NavigationProperty Name="Subject1" Relationship="Self.FK__Topics__SubjectI__628FA481" FromRole="Topics" ToRole="Subjects" />
+        </EntityType>
+        <EntityType Name="UserLogin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LoginDateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_UserLogins_AspNetUsers" FromRole="UserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="YearlyExamQuestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YearlyExamId" Type="Int32" />
+          <Property Name="QuestionId" Type="Int32" />
+          <Property Name="QuestionOrder" Type="Int32" />
+          <NavigationProperty Name="Question" Relationship="Self.FK__YearlyExa__Quest__18EBB532" FromRole="YearlyExamQuestions" ToRole="Questions" />
+          <NavigationProperty Name="Question1" Relationship="Self.FK__YearlyExa__Quest__656C112C" FromRole="YearlyExamQuestions" ToRole="Questions" />
+          <NavigationProperty Name="YearlyExam" Relationship="Self.FK__YearlyExa__Yearl__19DFD96B" FromRole="YearlyExamQuestions" ToRole="YearlyExams" />
+          <NavigationProperty Name="YearlyExam1" Relationship="Self.FK__YearlyExa__Yearl__66603565" FromRole="YearlyExamQuestions" ToRole="YearlyExams" />
+        </EntityType>
+        <EntityType Name="YearlyExam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectId" Type="Int32" />
+          <Property Name="ExamYear" Type="Int32" />
+          <Property Name="ExamMonth" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="Duration" Type="Int32" />
+          <Property Name="AGradePercent" Type="Double" />
+          <Property Name="BGradePercent" Type="Double" />
+          <Property Name="CGradePercent" Type="Double" />
+          <Property Name="DGradePercent" Type="Double" />
+          <Property Name="EGradePercent" Type="Double" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__YearlyExa__Creat__1AD3FDA4" FromRole="YearlyExams" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__YearlyExa__Creat__6754599E" FromRole="YearlyExams" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser2" Relationship="Self.FK__YearlyExa__Updat__1CBC4616" FromRole="YearlyExams" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser3" Relationship="Self.FK__YearlyExa__Updat__693CA210" FromRole="YearlyExams" ToRole="AspNetUsers" />
+          <NavigationProperty Name="StudentYearlyExams" Relationship="Self.FK__StudentYe__Yearl__1332DBDC" FromRole="YearlyExams" ToRole="StudentYearlyExam" />
+          <NavigationProperty Name="StudentYearlyExams1" Relationship="Self.FK__StudentYe__Yearl__5EBF139D" FromRole="YearlyExams" ToRole="StudentYearlyExam" />
+          <NavigationProperty Name="Subject" Relationship="Self.FK__YearlyExa__Subje__1BC821DD" FromRole="YearlyExams" ToRole="Subjects" />
+          <NavigationProperty Name="Subject1" Relationship="Self.FK__YearlyExa__Subje__68487DD7" FromRole="YearlyExams" ToRole="Subjects" />
+          <NavigationProperty Name="YearlyExamQuestions" Relationship="Self.FK__YearlyExa__Yearl__19DFD96B" FromRole="YearlyExams" ToRole="YearlyExamQuestions" />
+          <NavigationProperty Name="YearlyExamQuestions1" Relationship="Self.FK__YearlyExa__Yearl__66603565" FromRole="YearlyExams" ToRole="YearlyExamQuestions" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Count__47DBAE45">
+          <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Count__7E37BEF6">
+          <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Creat__48CFD27E">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="AspNetUsers1" Type="Self.AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers1">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Creat__7F2BE32F">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="AspNetUsers1" Type="Self.AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers1">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Updat__00200768">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="AspNetUsers1" Type="Self.AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers1">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Updat__49C3F6B7">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="AspNetUsers1" Type="Self.AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers1">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExamTypes__Creat__01142BA1">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="ExamTypes" Type="Self.ExamType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExamTypes">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExamTypes__Creat__4AB81AF0">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="ExamTypes" Type="Self.ExamType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExamTypes">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExamTypes__Updat__02084FDA">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="ExamTypes" Type="Self.ExamType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExamTypes">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ExamTypes__Updat__4BAC3F29">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="ExamTypes" Type="Self.ExamType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExamTypes">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LoggedInT__UserI__02FC7413">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="LoggedInTracking" Type="Self.LoggedInTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoggedInTracking">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LoggedInT__UserI__4CA06362">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="LoggedInTracking" Type="Self.LoggedInTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoggedInTracking">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Questions__Creat__03F0984C">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Questions" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Questions__Creat__4D94879B">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Questions" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Questions__Updat__04E4BC85">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Questions" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Questions__Updat__4E88ABD4">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Questions" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Creat__05D8E0BE">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="QuestionTopics" Type="Self.QuestionTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionTopics">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Creat__4F7CD00D">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="QuestionTopics" Type="Self.QuestionTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionTopics">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Updat__08B54D69">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="QuestionTopics" Type="Self.QuestionTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionTopics">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Updat__52593CB8">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="QuestionTopics" Type="Self.QuestionTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionTopics">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentSu__Creat__0D7A0286">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="StudentSubjects" Type="Self.StudentSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentSubjects">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentSu__Creat__5812160E">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="StudentSubjects" Type="Self.StudentSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentSubjects">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentSu__Updat__0F624AF8">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="StudentSubjects" Type="Self.StudentSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentSubjects">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentSu__Updat__59FA5E80">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="StudentSubjects" Type="Self.StudentSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentSubjects">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subjects__Create__14270015">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Subjects" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subjects">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subjects__Create__5FB337D6">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Subjects" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subjects">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subjects__Update__151B244E">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Subjects" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subjects">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subjects__Update__60A75C0F">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Subjects" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subjects">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Topics__CreatedB__160F4887">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Topics" Type="Self.Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Topics">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Topics__CreatedB__619B8048">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Topics" Type="Self.Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Topics">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Topics__UpdatedB__17F790F9">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Topics" Type="Self.Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Topics">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Topics__UpdatedB__6383C8BA">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="Topics" Type="Self.Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Topics">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Creat__1AD3FDA4">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="YearlyExams" Type="Self.YearlyExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExams">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Creat__6754599E">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="YearlyExams" Type="Self.YearlyExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExams">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Updat__1CBC4616">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="YearlyExams" Type="Self.YearlyExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExams">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Updat__693CA210">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="YearlyExams" Type="Self.YearlyExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExams">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentExams_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="StudentExams" Type="Self.StudentExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExams">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentSubjects_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="StudentSubjects" Type="Self.StudentSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentSubjects">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLogins_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="UserLogins" Type="Self.UserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentEx__ExamT__0B91BA14">
+          <End Role="ExamTypes" Type="Self.ExamType" Multiplicity="0..1" />
+          <End Role="StudentExams" Type="Self.StudentExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExamTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExams">
+              <PropertyRef Name="ExamTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentEx__ExamT__5535A963">
+          <End Role="ExamTypes" Type="Self.ExamType" Multiplicity="0..1" />
+          <End Role="StudentExams" Type="Self.StudentExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExamTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExams">
+              <PropertyRef Name="ExamTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Quest__06CD04F7">
+          <End Role="Questions" Type="Self.Question" Multiplicity="0..1" />
+          <End Role="QuestionTopics" Type="Self.QuestionTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionTopics">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Quest__5070F446">
+          <End Role="Questions" Type="Self.Question" Multiplicity="0..1" />
+          <End Role="QuestionTopics" Type="Self.QuestionTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionTopics">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentEx__Quest__09A971A2">
+          <End Role="Questions" Type="Self.Question" Multiplicity="0..1" />
+          <End Role="StudentExamDetails" Type="Self.StudentExamDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExamDetails">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentEx__Quest__534D60F1">
+          <End Role="Questions" Type="Self.Question" Multiplicity="0..1" />
+          <End Role="StudentExamDetails" Type="Self.StudentExamDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExamDetails">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Quest__18EBB532">
+          <End Role="Questions" Type="Self.Question" Multiplicity="0..1" />
+          <End Role="YearlyExamQuestions" Type="Self.YearlyExamQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExamQuestions">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Quest__656C112C">
+          <End Role="Questions" Type="Self.Question" Multiplicity="0..1" />
+          <End Role="YearlyExamQuestions" Type="Self.YearlyExamQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExamQuestions">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Topic__07C12930">
+          <End Role="Topics" Type="Self.Topic" Multiplicity="0..1" />
+          <End Role="QuestionTopics" Type="Self.QuestionTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topics">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionTopics">
+              <PropertyRef Name="TopicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuestionT__Topic__5165187F">
+          <End Role="Topics" Type="Self.Topic" Multiplicity="0..1" />
+          <End Role="QuestionTopics" Type="Self.QuestionTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topics">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionTopics">
+              <PropertyRef Name="TopicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentEx__Stude__0A9D95DB">
+          <End Role="StudentExams" Type="Self.StudentExam" Multiplicity="0..1" />
+          <End Role="StudentExamDetails" Type="Self.StudentExamDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExamDetails">
+              <PropertyRef Name="StudentExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentEx__Stude__5441852A">
+          <End Role="StudentExams" Type="Self.StudentExam" Multiplicity="0..1" />
+          <End Role="StudentExamDetails" Type="Self.StudentExamDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExamDetails">
+              <PropertyRef Name="StudentExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentEx__Subje__0C85DE4D">
+          <End Role="Subjects" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="StudentExams" Type="Self.StudentExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExams">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentEx__Subje__5629CD9C">
+          <End Role="Subjects" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="StudentExams" Type="Self.StudentExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentExams">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentTo__Stude__10566F31">
+          <End Role="StudentExams" Type="Self.StudentExam" Multiplicity="0..1" />
+          <End Role="StudentTopicalExam" Type="Self.StudentTopicalExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentTopicalExam">
+              <PropertyRef Name="StudentExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentTo__Stude__5BE2A6F2">
+          <End Role="StudentExams" Type="Self.StudentExam" Multiplicity="0..1" />
+          <End Role="StudentTopicalExam" Type="Self.StudentTopicalExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentTopicalExam">
+              <PropertyRef Name="StudentExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentYe__Stude__123EB7A3">
+          <End Role="StudentExams" Type="Self.StudentExam" Multiplicity="0..1" />
+          <End Role="StudentYearlyExam" Type="Self.StudentYearlyExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentYearlyExam">
+              <PropertyRef Name="StudentExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentYe__Stude__5DCAEF64">
+          <End Role="StudentExams" Type="Self.StudentExam" Multiplicity="0..1" />
+          <End Role="StudentYearlyExam" Type="Self.StudentYearlyExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentYearlyExam">
+              <PropertyRef Name="StudentExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentSu__Subje__0E6E26BF">
+          <End Role="Subjects" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="StudentSubjects" Type="Self.StudentSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentSubjects">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentSu__Subje__59063A47">
+          <End Role="Subjects" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="StudentSubjects" Type="Self.StudentSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentSubjects">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentTo__Topic__114A936A">
+          <End Role="Topics" Type="Self.Topic" Multiplicity="0..1" />
+          <End Role="StudentTopicalExam" Type="Self.StudentTopicalExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topics">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentTopicalExam">
+              <PropertyRef Name="TopicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentTo__Topic__5CD6CB2B">
+          <End Role="Topics" Type="Self.Topic" Multiplicity="0..1" />
+          <End Role="StudentTopicalExam" Type="Self.StudentTopicalExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topics">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentTopicalExam">
+              <PropertyRef Name="TopicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentYe__Yearl__1332DBDC">
+          <End Role="YearlyExams" Type="Self.YearlyExam" Multiplicity="0..1" />
+          <End Role="StudentYearlyExam" Type="Self.StudentYearlyExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YearlyExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentYearlyExam">
+              <PropertyRef Name="YearlyExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentYe__Yearl__5EBF139D">
+          <End Role="YearlyExams" Type="Self.YearlyExam" Multiplicity="0..1" />
+          <End Role="StudentYearlyExam" Type="Self.StudentYearlyExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YearlyExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentYearlyExam">
+              <PropertyRef Name="YearlyExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Topics__SubjectI__17036CC0">
+          <End Role="Subjects" Type="Self.Subject" Multiplicity="1" />
+          <End Role="Topics" Type="Self.Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Topics">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Topics__SubjectI__628FA481">
+          <End Role="Subjects" Type="Self.Subject" Multiplicity="1" />
+          <End Role="Topics" Type="Self.Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Topics">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Subje__1BC821DD">
+          <End Role="Subjects" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="YearlyExams" Type="Self.YearlyExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExams">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Subje__68487DD7">
+          <End Role="Subjects" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="YearlyExams" Type="Self.YearlyExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExams">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Yearl__19DFD96B">
+          <End Role="YearlyExams" Type="Self.YearlyExam" Multiplicity="0..1" />
+          <End Role="YearlyExamQuestions" Type="Self.YearlyExamQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YearlyExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExamQuestions">
+              <PropertyRef Name="YearlyExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YearlyExa__Yearl__66603565">
+          <End Role="YearlyExams" Type="Self.YearlyExam" Multiplicity="0..1" />
+          <End Role="YearlyExamQuestions" Type="Self.YearlyExamQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YearlyExams">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="YearlyExamQuestions">
+              <PropertyRef Name="YearlyExamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="iQualifyDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="ExamTypes" EntityType="Self.ExamType" />
+          <EntitySet Name="LoggedInTrackings" EntityType="Self.LoggedInTracking" />
+          <EntitySet Name="Questions" EntityType="Self.Question" />
+          <EntitySet Name="QuestionTopics" EntityType="Self.QuestionTopic" />
+          <EntitySet Name="StudentExamDetails" EntityType="Self.StudentExamDetail" />
+          <EntitySet Name="StudentExams" EntityType="Self.StudentExam" />
+          <EntitySet Name="StudentSubjects" EntityType="Self.StudentSubject" />
+          <EntitySet Name="StudentTopicalExams" EntityType="Self.StudentTopicalExam" />
+          <EntitySet Name="StudentYearlyExams" EntityType="Self.StudentYearlyExam" />
+          <EntitySet Name="Subjects" EntityType="Self.Subject" />
+          <EntitySet Name="Topics" EntityType="Self.Topic" />
+          <EntitySet Name="UserLogins" EntityType="Self.UserLogin" />
+          <EntitySet Name="YearlyExamQuestions" EntityType="Self.YearlyExamQuestion" />
+          <EntitySet Name="YearlyExams" EntityType="Self.YearlyExam" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Count__47DBAE45" Association="Self.FK__AspNetUse__Count__47DBAE45">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Count__7E37BEF6" Association="Self.FK__AspNetUse__Count__7E37BEF6">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Creat__48CFD27E" Association="Self.FK__AspNetUse__Creat__48CFD27E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsers1" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Creat__7F2BE32F" Association="Self.FK__AspNetUse__Creat__7F2BE32F">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsers1" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Updat__00200768" Association="Self.FK__AspNetUse__Updat__00200768">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsers1" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Updat__49C3F6B7" Association="Self.FK__AspNetUse__Updat__49C3F6B7">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsers1" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExamTypes__Creat__01142BA1" Association="Self.FK__ExamTypes__Creat__01142BA1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ExamTypes" EntitySet="ExamTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExamTypes__Creat__4AB81AF0" Association="Self.FK__ExamTypes__Creat__4AB81AF0">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ExamTypes" EntitySet="ExamTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExamTypes__Updat__02084FDA" Association="Self.FK__ExamTypes__Updat__02084FDA">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ExamTypes" EntitySet="ExamTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ExamTypes__Updat__4BAC3F29" Association="Self.FK__ExamTypes__Updat__4BAC3F29">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ExamTypes" EntitySet="ExamTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LoggedInT__UserI__02FC7413" Association="Self.FK__LoggedInT__UserI__02FC7413">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="LoggedInTracking" EntitySet="LoggedInTrackings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LoggedInT__UserI__4CA06362" Association="Self.FK__LoggedInT__UserI__4CA06362">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="LoggedInTracking" EntitySet="LoggedInTrackings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Questions__Creat__03F0984C" Association="Self.FK__Questions__Creat__03F0984C">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Questions__Creat__4D94879B" Association="Self.FK__Questions__Creat__4D94879B">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Questions__Updat__04E4BC85" Association="Self.FK__Questions__Updat__04E4BC85">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Questions__Updat__4E88ABD4" Association="Self.FK__Questions__Updat__4E88ABD4">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Creat__05D8E0BE" Association="Self.FK__QuestionT__Creat__05D8E0BE">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="QuestionTopics" EntitySet="QuestionTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Creat__4F7CD00D" Association="Self.FK__QuestionT__Creat__4F7CD00D">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="QuestionTopics" EntitySet="QuestionTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Updat__08B54D69" Association="Self.FK__QuestionT__Updat__08B54D69">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="QuestionTopics" EntitySet="QuestionTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Updat__52593CB8" Association="Self.FK__QuestionT__Updat__52593CB8">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="QuestionTopics" EntitySet="QuestionTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentSu__Creat__0D7A0286" Association="Self.FK__StudentSu__Creat__0D7A0286">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="StudentSubjects" EntitySet="StudentSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentSu__Creat__5812160E" Association="Self.FK__StudentSu__Creat__5812160E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="StudentSubjects" EntitySet="StudentSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentSu__Updat__0F624AF8" Association="Self.FK__StudentSu__Updat__0F624AF8">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="StudentSubjects" EntitySet="StudentSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentSu__Updat__59FA5E80" Association="Self.FK__StudentSu__Updat__59FA5E80">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="StudentSubjects" EntitySet="StudentSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subjects__Create__14270015" Association="Self.FK__Subjects__Create__14270015">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Subjects" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subjects__Create__5FB337D6" Association="Self.FK__Subjects__Create__5FB337D6">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Subjects" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subjects__Update__151B244E" Association="Self.FK__Subjects__Update__151B244E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Subjects" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subjects__Update__60A75C0F" Association="Self.FK__Subjects__Update__60A75C0F">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Subjects" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Topics__CreatedB__160F4887" Association="Self.FK__Topics__CreatedB__160F4887">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Topics" EntitySet="Topics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Topics__CreatedB__619B8048" Association="Self.FK__Topics__CreatedB__619B8048">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Topics" EntitySet="Topics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Topics__UpdatedB__17F790F9" Association="Self.FK__Topics__UpdatedB__17F790F9">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Topics" EntitySet="Topics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Topics__UpdatedB__6383C8BA" Association="Self.FK__Topics__UpdatedB__6383C8BA">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Topics" EntitySet="Topics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Creat__1AD3FDA4" Association="Self.FK__YearlyExa__Creat__1AD3FDA4">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Creat__6754599E" Association="Self.FK__YearlyExa__Creat__6754599E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Updat__1CBC4616" Association="Self.FK__YearlyExa__Updat__1CBC4616">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Updat__693CA210" Association="Self.FK__YearlyExa__Updat__693CA210">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentExams_AspNetUsers" Association="Self.FK_StudentExams_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="StudentExams" EntitySet="StudentExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentSubjects_AspNetUsers" Association="Self.FK_StudentSubjects_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="StudentSubjects" EntitySet="StudentSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLogins_AspNetUsers" Association="Self.FK_UserLogins_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="UserLogins" EntitySet="UserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentEx__ExamT__0B91BA14" Association="Self.FK__StudentEx__ExamT__0B91BA14">
+            <End Role="ExamTypes" EntitySet="ExamTypes" />
+            <End Role="StudentExams" EntitySet="StudentExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentEx__ExamT__5535A963" Association="Self.FK__StudentEx__ExamT__5535A963">
+            <End Role="ExamTypes" EntitySet="ExamTypes" />
+            <End Role="StudentExams" EntitySet="StudentExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Quest__06CD04F7" Association="Self.FK__QuestionT__Quest__06CD04F7">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="QuestionTopics" EntitySet="QuestionTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Quest__5070F446" Association="Self.FK__QuestionT__Quest__5070F446">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="QuestionTopics" EntitySet="QuestionTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentEx__Quest__09A971A2" Association="Self.FK__StudentEx__Quest__09A971A2">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="StudentExamDetails" EntitySet="StudentExamDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentEx__Quest__534D60F1" Association="Self.FK__StudentEx__Quest__534D60F1">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="StudentExamDetails" EntitySet="StudentExamDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Quest__18EBB532" Association="Self.FK__YearlyExa__Quest__18EBB532">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="YearlyExamQuestions" EntitySet="YearlyExamQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Quest__656C112C" Association="Self.FK__YearlyExa__Quest__656C112C">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="YearlyExamQuestions" EntitySet="YearlyExamQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Topic__07C12930" Association="Self.FK__QuestionT__Topic__07C12930">
+            <End Role="Topics" EntitySet="Topics" />
+            <End Role="QuestionTopics" EntitySet="QuestionTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuestionT__Topic__5165187F" Association="Self.FK__QuestionT__Topic__5165187F">
+            <End Role="Topics" EntitySet="Topics" />
+            <End Role="QuestionTopics" EntitySet="QuestionTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentEx__Stude__0A9D95DB" Association="Self.FK__StudentEx__Stude__0A9D95DB">
+            <End Role="StudentExams" EntitySet="StudentExams" />
+            <End Role="StudentExamDetails" EntitySet="StudentExamDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentEx__Stude__5441852A" Association="Self.FK__StudentEx__Stude__5441852A">
+            <End Role="StudentExams" EntitySet="StudentExams" />
+            <End Role="StudentExamDetails" EntitySet="StudentExamDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentEx__Subje__0C85DE4D" Association="Self.FK__StudentEx__Subje__0C85DE4D">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="StudentExams" EntitySet="StudentExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentEx__Subje__5629CD9C" Association="Self.FK__StudentEx__Subje__5629CD9C">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="StudentExams" EntitySet="StudentExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentTo__Stude__10566F31" Association="Self.FK__StudentTo__Stude__10566F31">
+            <End Role="StudentExams" EntitySet="StudentExams" />
+            <End Role="StudentTopicalExam" EntitySet="StudentTopicalExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentTo__Stude__5BE2A6F2" Association="Self.FK__StudentTo__Stude__5BE2A6F2">
+            <End Role="StudentExams" EntitySet="StudentExams" />
+            <End Role="StudentTopicalExam" EntitySet="StudentTopicalExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentYe__Stude__123EB7A3" Association="Self.FK__StudentYe__Stude__123EB7A3">
+            <End Role="StudentExams" EntitySet="StudentExams" />
+            <End Role="StudentYearlyExam" EntitySet="StudentYearlyExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentYe__Stude__5DCAEF64" Association="Self.FK__StudentYe__Stude__5DCAEF64">
+            <End Role="StudentExams" EntitySet="StudentExams" />
+            <End Role="StudentYearlyExam" EntitySet="StudentYearlyExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentSu__Subje__0E6E26BF" Association="Self.FK__StudentSu__Subje__0E6E26BF">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="StudentSubjects" EntitySet="StudentSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentSu__Subje__59063A47" Association="Self.FK__StudentSu__Subje__59063A47">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="StudentSubjects" EntitySet="StudentSubjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentTo__Topic__114A936A" Association="Self.FK__StudentTo__Topic__114A936A">
+            <End Role="Topics" EntitySet="Topics" />
+            <End Role="StudentTopicalExam" EntitySet="StudentTopicalExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentTo__Topic__5CD6CB2B" Association="Self.FK__StudentTo__Topic__5CD6CB2B">
+            <End Role="Topics" EntitySet="Topics" />
+            <End Role="StudentTopicalExam" EntitySet="StudentTopicalExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentYe__Yearl__1332DBDC" Association="Self.FK__StudentYe__Yearl__1332DBDC">
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+            <End Role="StudentYearlyExam" EntitySet="StudentYearlyExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentYe__Yearl__5EBF139D" Association="Self.FK__StudentYe__Yearl__5EBF139D">
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+            <End Role="StudentYearlyExam" EntitySet="StudentYearlyExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Topics__SubjectI__17036CC0" Association="Self.FK__Topics__SubjectI__17036CC0">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="Topics" EntitySet="Topics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Topics__SubjectI__628FA481" Association="Self.FK__Topics__SubjectI__628FA481">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="Topics" EntitySet="Topics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Subje__1BC821DD" Association="Self.FK__YearlyExa__Subje__1BC821DD">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Subje__68487DD7" Association="Self.FK__YearlyExa__Subje__68487DD7">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Yearl__19DFD96B" Association="Self.FK__YearlyExa__Yearl__19DFD96B">
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+            <End Role="YearlyExamQuestions" EntitySet="YearlyExamQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YearlyExa__Yearl__66603565" Association="Self.FK__YearlyExa__Yearl__66603565">
+            <End Role="YearlyExams" EntitySet="YearlyExams" />
+            <End Role="YearlyExamQuestions" EntitySet="YearlyExamQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="iQualifyDBModelStoreContainer" CdmEntityContainer="iQualifyDBEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="iQualifyDBModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="iQualifyDBModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="iQualifyDBModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="iQualifyDBModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="iQualifyDBModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="ProfilePic" ColumnName="ProfilePic" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="IsPasswordReset" ColumnName="IsPasswordReset" />
+                <ScalarProperty Name="NoOfConcurrentViews" ColumnName="NoOfConcurrentViews" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="IsActiveUser" ColumnName="IsActiveUser" />
+                <ScalarProperty Name="ExpirationDateTime" ColumnName="ExpirationDateTime" />
+                <ScalarProperty Name="IsInstitutionalAccount" ColumnName="IsInstitutionalAccount" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="iQualifyDBModel.Country">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="FlagImage" ColumnName="FlagImage" />
+                <ScalarProperty Name="ISO2Name" ColumnName="ISO2Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExamTypes">
+            <EntityTypeMapping TypeName="iQualifyDBModel.ExamType">
+              <MappingFragment StoreEntitySet="ExamTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoggedInTrackings">
+            <EntityTypeMapping TypeName="iQualifyDBModel.LoggedInTracking">
+              <MappingFragment StoreEntitySet="LoggedInTracking">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AccessKey" ColumnName="AccessKey" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="DateTimeLoggedIn" ColumnName="DateTimeLoggedIn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="iQualifyDBModel.Question">
+              <MappingFragment StoreEntitySet="Questions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="QuestionData" ColumnName="QuestionData" />
+                <ScalarProperty Name="NoOfOptions" ColumnName="NoOfOptions" />
+                <ScalarProperty Name="CorrectAnswer" ColumnName="CorrectAnswer" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuestionTopics">
+            <EntityTypeMapping TypeName="iQualifyDBModel.QuestionTopic">
+              <MappingFragment StoreEntitySet="QuestionTopics">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+                <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentExamDetails">
+            <EntityTypeMapping TypeName="iQualifyDBModel.StudentExamDetail">
+              <MappingFragment StoreEntitySet="StudentExamDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StudentExamId" ColumnName="StudentExamId" />
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+                <ScalarProperty Name="SelectedAnswer" ColumnName="SelectedAnswer" />
+                <ScalarProperty Name="CorrectAnswer" ColumnName="CorrectAnswer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentExams">
+            <EntityTypeMapping TypeName="iQualifyDBModel.StudentExam">
+              <MappingFragment StoreEntitySet="StudentExams">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="ExamTypeId" ColumnName="ExamTypeId" />
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+                <ScalarProperty Name="ExamDateTime" ColumnName="ExamDateTime" />
+                <ScalarProperty Name="TotalQuestions" ColumnName="TotalQuestions" />
+                <ScalarProperty Name="CorrectAnswers" ColumnName="CorrectAnswers" />
+                <ScalarProperty Name="WrongAnswers" ColumnName="WrongAnswers" />
+                <ScalarProperty Name="MarksObtained" ColumnName="MarksObtained" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentSubjects">
+            <EntityTypeMapping TypeName="iQualifyDBModel.StudentSubject">
+              <MappingFragment StoreEntitySet="StudentSubjects">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentTopicalExams">
+            <EntityTypeMapping TypeName="iQualifyDBModel.StudentTopicalExam">
+              <MappingFragment StoreEntitySet="StudentTopicalExam">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StudentExamId" ColumnName="StudentExamId" />
+                <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentYearlyExams">
+            <EntityTypeMapping TypeName="iQualifyDBModel.StudentYearlyExam">
+              <MappingFragment StoreEntitySet="StudentYearlyExam">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StudentExamId" ColumnName="StudentExamId" />
+                <ScalarProperty Name="YearlyExamId" ColumnName="YearlyExamId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="iQualifyDBModel.Subject">
+              <MappingFragment StoreEntitySet="Subjects">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SubjectCode" ColumnName="SubjectCode" />
+                <ScalarProperty Name="SubjectClass" ColumnName="SubjectClass" />
+                <ScalarProperty Name="SubjectType" ColumnName="SubjectType" />
+                <ScalarProperty Name="SubjectDescription" ColumnName="SubjectDescription" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Topics">
+            <EntityTypeMapping TypeName="iQualifyDBModel.Topic">
+              <MappingFragment StoreEntitySet="Topics">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TopicDescription" ColumnName="TopicDescription" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLogins">
+            <EntityTypeMapping TypeName="iQualifyDBModel.UserLogin">
+              <MappingFragment StoreEntitySet="UserLogins">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LoginDateTime" ColumnName="LoginDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YearlyExamQuestions">
+            <EntityTypeMapping TypeName="iQualifyDBModel.YearlyExamQuestion">
+              <MappingFragment StoreEntitySet="YearlyExamQuestions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="YearlyExamId" ColumnName="YearlyExamId" />
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+                <ScalarProperty Name="QuestionOrder" ColumnName="QuestionOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YearlyExams">
+            <EntityTypeMapping TypeName="iQualifyDBModel.YearlyExam">
+              <MappingFragment StoreEntitySet="YearlyExams">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+                <ScalarProperty Name="ExamYear" ColumnName="ExamYear" />
+                <ScalarProperty Name="ExamMonth" ColumnName="ExamMonth" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="AGradePercent" ColumnName="AGradePercent" />
+                <ScalarProperty Name="BGradePercent" ColumnName="BGradePercent" />
+                <ScalarProperty Name="CGradePercent" ColumnName="CGradePercent" />
+                <ScalarProperty Name="DGradePercent" ColumnName="DGradePercent" />
+                <ScalarProperty Name="EGradePercent" ColumnName="EGradePercent" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="iQualifyDBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6fbd7f6a4c1f4277afcbc6c9fe10f7c7" Name="Diagram1">
+        <EntityTypeShape EntityType="iQualifyDBModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.AspNetRole" Width="1.5" PointX="0.75" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.AspNetUser" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.Country" Width="1.5" PointX="0.75" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.ExamType" Width="1.5" PointX="5.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.LoggedInTracking" Width="1.5" PointX="5.25" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.Question" Width="1.5" PointX="5.25" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.QuestionTopic" Width="1.5" PointX="7.5" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.StudentExamDetail" Width="1.5" PointX="12.75" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.StudentExam" Width="1.5" PointX="7.5" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.StudentSubject" Width="1.5" PointX="10.5" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.StudentTopicalExam" Width="1.5" PointX="9.75" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.StudentYearlyExam" Width="1.5" PointX="15.75" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.Subject" Width="1.5" PointX="5.25" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.Topic" Width="1.5" PointX="7.5" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.UserLogin" Width="1.5" PointX="5.25" PointY="41.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.YearlyExamQuestion" Width="1.5" PointX="10.5" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="iQualifyDBModel.YearlyExam" Width="1.5" PointX="13.5" PointY="27.5" IsExpanded="true" />
+        <AssociationConnector Association="iQualifyDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__AspNetUse__Count__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__AspNetUse__Count__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__AspNetUse__Creat__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__AspNetUse__Creat__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__AspNetUse__Updat__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__AspNetUse__Updat__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__ExamTypes__Creat__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__ExamTypes__Creat__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__ExamTypes__Updat__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__ExamTypes__Updat__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__LoggedInT__UserI__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__LoggedInT__UserI__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__Questions__Creat__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__Questions__Creat__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__Questions__Updat__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__Questions__Updat__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__QuestionT__Creat__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__QuestionT__Creat__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__QuestionT__Updat__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__QuestionT__Updat__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentSu__Creat__0D7A0286" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentSu__Creat__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentSu__Updat__0F624AF8" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentSu__Updat__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__Subjects__Create__14270015" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__Subjects__Create__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__Subjects__Update__151B244E" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__Subjects__Update__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__Topics__CreatedB__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__Topics__CreatedB__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__Topics__UpdatedB__17F790F9" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__Topics__UpdatedB__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__YearlyExa__Creat__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__YearlyExa__Creat__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__YearlyExa__Updat__1CBC4616" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__YearlyExa__Updat__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK_StudentExams_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK_StudentSubjects_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK_UserLogins_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentEx__ExamT__0B91BA14" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentEx__ExamT__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__QuestionT__Quest__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__QuestionT__Quest__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentEx__Quest__09A971A2" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentEx__Quest__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__YearlyExa__Quest__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__YearlyExa__Quest__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__QuestionT__Topic__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__QuestionT__Topic__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentEx__Stude__0A9D95DB" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentEx__Stude__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentEx__Subje__0C85DE4D" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentEx__Subje__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentTo__Stude__10566F31" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentTo__Stude__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentYe__Stude__123EB7A3" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentYe__Stude__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentSu__Subje__0E6E26BF" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentSu__Subje__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentTo__Topic__114A936A" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentTo__Topic__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentYe__Yearl__1332DBDC" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__StudentYe__Yearl__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__Topics__SubjectI__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__Topics__SubjectI__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__YearlyExa__Subje__1BC821DD" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__YearlyExa__Subje__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__YearlyExa__Yearl__19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.FK__YearlyExa__Yearl__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="iQualifyDBModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

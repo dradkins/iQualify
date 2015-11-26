@@ -1,0 +1,121 @@
+﻿<!-- Page Header -->
+<div class="content bg-gray-lighter">
+    <div class="row items-push">
+        <div class="col-sm-7">
+            <h1 class="page-heading">
+                Subject Selection <br /><small>Select subjects you want to study.</small>
+            </h1>
+        </div>
+        <div class="col-sm-5 text-right hidden-xs">
+            <ol class="breadcrumb push-10-t">
+                <li>Home</li>
+                <li><a class="link-effect" href="">Subject Selection</a></li>
+            </ol>
+        </div>
+    </div>
+</div>
+<!-- END Page Header -->
+<!-- Page Content -->
+<div class="content">
+    <div class="col-lg-4">
+        <div class="block block-themed">
+            <div class="block-header bg-amethyst">
+                <h3 class="block-title">Select Options</h3>
+            </div>
+            <div class="block-content block-content-full">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <b>Select Type</b>
+                        </div>
+                        <div class="col-xs-8 col-xs-offset-4">
+                            <div class="row">
+                                <label class="css-input css-radio css-radio-success push-10-r">
+                                    <input type="radio" value="1" name="radio-subjectType" ng-model="subjectType"><span></span> IGSCE
+                                </label>
+                            </div>
+                            <div class="row">
+                                <label class="css-input css-radio css-radio-success">
+                                    <input type="radio" value="2" name="radio-subjectType" ng-model="subjectType"><span></span> GCE
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <b>Select Class</b>
+                        </div>
+                        <div class="col-xs-8 col-xs-offset-4">
+                            <div class="row">
+                                <label class="css-input css-radio css-radio-primary push-10-r">
+                                    <input type="radio" value="1" name="radio-subjectclass" ng-model="subjectClass" checked><span></span> O Level
+                                </label>
+                            </div>
+                            <div class="row">
+                                <label class="css-input css-radio css-radio-primary">
+                                    <input type="radio" value="2" name="radio-subjectclass" ng-model="subjectClass"><span></span> A Level 1
+                                </label>
+                            </div>
+                            <div class="row">
+                                <label class="css-input css-radio css-radio-primary">
+                                    <input type="radio" value="3" name="radio-subjectclass" ng-model="subjectClass"><span></span> A Level 2
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block-content bg-gray-lighter">
+                <div class="row items-push text-center">
+                    <div class="col-xs-6 col-lg-offset-6">
+                        <a href="" ng-click="getSubjects()">
+                            <div class="push-5"><i class="si si-check fa-2x"></i></div>
+                            <div class="h5 font-w300">
+                                OK
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-8" ng-show="isSubjectsReached">
+        <div class="block block-themed">
+            <div class="block-header bg-primary">
+                <h3 class="block-title">Select Options</h3>
+            </div>
+            <div class="block-content block-content-full">
+                <div class="row" ng-show="subjects.length > 0">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <p>Please select subjects and click register to complete registration</p>
+                        <div class="form-group col-xs-6" ng-repeat="subject in subjects">
+                            <label class="css-input switch switch-primary">
+                                <input type="checkbox" ng-model="subject.isSelected"><span></span> {{subject.subjectName}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" ng-show="subjects.length <= 0">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <p>No subject found. Please try a different combination</p>
+                    </div>
+                </div>
+            </div>
+            <div class="block-content bg-gray-lighter">
+                <div class="row items-push text-center">
+                    <div class="col-xs-6 col-lg-offset-6">
+                        <a href="" ng-click="subjectsSelected()" ng-show="subjects.length > 0">
+                            <div class="push-5"><i class="si si-check fa-2x"></i></div>
+                            <div class="h5 font-w300">
+                                OK
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Page Content -->

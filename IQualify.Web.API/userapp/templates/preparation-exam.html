@@ -1,0 +1,185 @@
+﻿<!--<div ng-show="!testStart">
+    <input type="text" ng-model="totalQuestions" />
+</div>
+<div ng-show="testStart">
+    <div>
+        <div>
+            {{question.text}}
+        </div>
+        <div>
+            <div ng-repeat="answers in question.answers">
+                <div class="radio">
+                    <input type="radio" ng-model="answer.value" />{{answer.text}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button ng-click="getAnswer()">Next</button>
+    </div>
+    <div ng-show="answer.isWrong">
+        <div>
+            Your answer is wrong
+            Correct option is {{answer.correctOption}}
+            Reason is {{answer.reason}}
+        </div>
+        <button ng-click="nextQuestion">Proceede To Next Question</button>
+    </div>
+</div>
+<div ng-show="examComplete">
+    {{totalQuestions}}
+    {{correctAnswers}}
+    {{wrongAnswers}}
+    {{percentage}}
+</div>-->
+<!-- Page Header -->
+<!--<div class="content bg-gray-lighter">
+    <div class="row items-push">
+        <div class="col-sm-7">
+            <h1 class="page-heading">
+                Preparation Exam <br /><small>Attemp questions for praparing.</small>
+            </h1>
+        </div>
+        <div class="col-sm-5 text-right hidden-xs">
+            <ol class="breadcrumb push-10-t">
+                <li>Home</li>
+                <li><a class="link-effect" href="">Preparation Exam</a></li>
+            </ol>
+        </div>
+    </div>
+</div>-->
+<!-- END Page Header -->
+<!-- Page Content -->
+<div class="content">
+    <div class="col-lg-12">
+        <div class="block block-themed">
+            <div class="block-header bg-amethyst">
+                <h3 class="block-title">Preparation Exam</h3>
+            </div>
+            <div class="block-content block-content-full">
+                <div class="row">
+                    <div ng-hide="isExamStart">
+                        <form class="form-horizontal push-10-t push-10" name="totalQuestionsForm" ng-submit="getQuestions()">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-sm-offset-4">
+                                    <div class="form-material floating">
+                                        <input class="form-control" type="number" ng-model="noOfTotalQuestions" name="total-questions" min="5" max="50" form-input>
+                                        <label for="total-questions">Enter number of questions *</label>
+                                    </div>
+                                    <small class="text-danger">* min 5 and max 50 questions allowed</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-4 col-sm-offset-4 pull-right">
+                                    <button class="btn btn-sm btn-success" type="submit"><i class="fa fa-plus push-5-r"></i> OK</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div ng-show="isExamStart && !isExamComplete">
+                        <div class="col-sm-12">
+                            <h3>{{currentQuestionNumber+1}}.</h3>
+                        </div>
+                        <div class="col-sm-12">
+                            <img ng-src="data:image/png;base64,{{currentQuestion.questionImage}}" class="img-rounded" />
+                        </div>
+                        <div class="col-sm-12">
+                            <br />
+                            <br />
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <h4>Select your answer</h4>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="col-sm-3" ng-repeat="option in currentQuestionOptions">
+                                        <label class="css-input css-radio css-radio-primary push-10-r">
+                                            <input type="radio" value="{{option}}" name="radio-answer-option" ng-model="$parent.selectedAnswer"><span></span> {{option}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <button class="btn btn-primary pull-right" ng-click="checkAnswer()" ng-disabled="nextButtonDisabled || !selectedAnswer">Next <i class="fa fa-angle-double-right"></i></button>
+                        </div>
+                        <div class="col-sm-12" ng-show="showErrorDialog">
+                            <br />
+                            <br />
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h3 class="font-w300 push-15">Oops</h3>
+                                <p>Unfortunatily your answer is wrong!</p>
+                                <p>
+                                    The correct answer is : {{answer.correctAnswer}}
+                                </p>
+                                <p>
+                                    Reason of correct answer is : {{answer.reason}}
+                                </p>
+                                <p>
+                                    <a class="alert-link" href="" ng-click="nextQuestion()">Click here to proceede to next question</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="isExamComplete" class="text-center">
+                        <div fusioncharts
+                             width="600"
+                             height="400"
+                             type="pie3d"
+                             datasource="{{myDataSource}}">
+                        </div>
+                        <!--<h1>Exam Report</h1>
+                        <h3>Total Questions : {{noOfTotalQuestions}}</h3>
+                        <h3>Correct Answers : {{result.correctAnswers}}</h3>
+                        <h3>Wrong Answers : {{result.wrongAnswers}}</h3>
+                        <h3>Percentage : {{noOfTotalQuestions / result.correctAnswers}}</h3>-->
+                    </div>
+                </div>
+            </div>
+            <div class="block-content bg-gray-lighter">
+                <div class="row items-push text-center">
+                    <div class="col-sm-4 col-md-offset-4">
+                        Preparation Exam
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8" ng-show="isSubjectsReached">
+        <div class="block block-themed">
+            <div class="block-header bg-primary">
+                <h3 class="block-title">Select Options</h3>
+            </div>
+            <div class="block-content block-content-full">
+                <div class="row" ng-show="subjects.length > 0">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <p>Please select subjects and click register to complete registration</p>
+                        <div class="form-group col-xs-6" ng-repeat="subject in subjects">
+                            <label class="css-input switch switch-primary">
+                                <input type="checkbox" ng-model="subject.isSelected"><span></span> {{subject.subjectName}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-show="subjects.length <= 0">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <p>No subject found. Please try a different combination</p>
+                    </div>
+                </div>
+            </div>
+            <div class="block-content bg-gray-lighter">
+                <div class="row items-push text-center">
+                    <div class="col-xs-6 col-lg-offset-6">
+                        <a href="" ng-click="subjectsSelected()" ng-show="subjects.length > 0">
+                            <div class="push-5"><i class="si si-check fa-2x"></i></div>
+                            <div class="h5 font-w300">
+                                OK
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Page Content -->

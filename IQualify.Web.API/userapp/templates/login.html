@@ -1,0 +1,65 @@
+﻿<!-- Login Content -->
+<div class="content overflow-hidden">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+            <div class="block block-themed animated fadeIn">
+                <div class="block-header bg-primary">
+                    <ul class="block-options">
+                        <li>
+                            <a ui-sref="forgot-password">Forgot Password?</a>
+                        </li>
+                        <li>
+                            <a ui-sref="register" data-toggle="tooltip" data-placement="left" title="New Account"><i class="si si-plus"></i></a>
+                        </li>
+                    </ul>
+                    <h3 class="block-title">Login</h3>
+                </div>
+                <div class="block-content block-content-full block-content-narrow">
+                    <h1 class="h2 font-w600 push-30-t push-5">
+                        iQualify
+                    </h1>
+                    <form class="js-validation-login form-horizontal push-30-t push-50" name="loginForm" ng-submit="login('#loginForm', loginForm)" id="loginForm" login-validate>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <div class="form-material form-material-primary floating">
+                                    <input class="form-control" type="text" id="login-username" name="login-username" ng-model="username" form-input>
+                                    <label for="login-username">Email Address</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <div class="form-material form-material-primary floating">
+                                    <input class="form-control" type="password" id="login-password" name="login-password" ng-model="password" form-input>
+                                    <label for="login-password">Password</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <label class="css-input switch switch-sm switch-primary">
+                                    <input type="checkbox" id="login-remember-me" name="login-remember-me"><span></span> Remember Me?
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                <button class="btn btn-block btn-primary" type="submit"><i class="si si-login pull-right"></i> Log in</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="alert alert-warning alert-dismissable" ng-if="showEmailConfirmation">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h3 class="font-w300 push-15">Information</h3>
+
+                        <p>Email not confirmed. We send you an email confirmation link on account creation, however if you didn't receive that email click <a class="alert-link" href="" ng-click="resendEmailConfirmation()">here</a> to resend a confirmation link.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="push-10-t text-center animated fadeInUp">
+    <small class="text-muted font-w600"><span class="js-year-copy"></span> &copy; iQualify</small>
+</div>
