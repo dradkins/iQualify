@@ -231,6 +231,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnswerModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\QuestionModels.cs" />
     <Compile Include="Models\SubjectModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />

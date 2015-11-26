@@ -19,6 +19,7 @@ namespace IQualify.Web.API.Controllers
             _Uow = uow;
         }
 
+        [HttpGet]
         public async Task<IHttpActionResult> CheckQuestionAnswer(CheckAnswerModel model)
         {
             try
@@ -40,7 +41,7 @@ namespace IQualify.Web.API.Controllers
                 }
                 answerStatus.IsCorrect = false;
                 answerStatus.CorrectAnswer = question.CorrectAnswer;
-                answerStatus.Reason = question.Reason;
+                answerStatus.Reason = question.Reason ?? "";
                 return Ok(answerStatus);
             }
             catch (Exception ex)

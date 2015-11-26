@@ -21,6 +21,7 @@
             .state("confirm-email", { url: "/confirm-email/:userId/:confirmationToken", templateUrl: "/userapp/templates/confirm-email.html", controller: "confirmEmailController" })
             .state("menu", { url: "/menu", templateUrl: "/userapp/templates/menu.html" })
             .state("subject-selection", { url: "/subject-selection", templateUrl: "/userapp/templates/subject-selection.html", parent: "menu", controller: "subjectSelectionController" })
+            .state("preparation-exam", { url: "/preparation-exam", templateUrl: "/userapp/templates/preparation-exam.html", parent: "menu", controller: "preparationExamController" })
         $urlRouterProvider.otherwise("/login");
     });
 

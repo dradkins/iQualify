@@ -33,14 +33,14 @@
 
         var profile = initialize();
 
-        var profile = {
-            username: "",
-            fullName: "",
-            token: "",
-            get loggedIn() {
-                return this.token;
-            }
-        };
+        //var profile = {
+        //    username: "",
+        //    fullName: "",
+        //    token: "",
+        //    get loggedIn() {
+        //        return this.token;
+        //    }
+        //};
 
         return {
             setProfile: setProfile,
