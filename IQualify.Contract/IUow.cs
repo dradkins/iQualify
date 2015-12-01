@@ -21,6 +21,8 @@ namespace IQualify.Contract
 
         IRepository<StudentSubject> _StudentSubjects { get; }
         IRepository<Question> _Questions { get; }
+        IRepository<YearlyExam> _YearlyExams { get; }
+        IRepository<StudentExam> _StudentExam { get; }
 
         #endregion
     }

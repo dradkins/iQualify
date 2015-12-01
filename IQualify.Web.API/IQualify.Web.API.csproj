@@ -224,15 +224,18 @@
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\YearlyExamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnswerModels.cs" />
+    <Compile Include="Models\ExamsModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\QuestionModels.cs" />
     <Compile Include="Models\SubjectModels.cs" />
+    <Compile Include="Models\StudentYearlyExamModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
