@@ -46,7 +46,7 @@
 
         var onLoginSuccess = function (data) {
             toastr.success("Welcom to iQualify " + data);
-            $state.go('subject-selection');
+            $state.go('topical-exam-selection');
         }
 
         var onLoginError = function (response) {

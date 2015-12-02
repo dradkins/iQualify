@@ -38,13 +38,12 @@ namespace DrNajeeb.Data
         #region Generic repositories
 
         public IRepository<Subject> _Subjects { get { return GetStandardRepo<Subject>(); } }
-
         public IRepository<StudentSubject> _StudentSubjects { get { return GetStandardRepo<StudentSubject>(); } }
-
         public IRepository<Question> _Questions { get { return GetStandardRepo<Question>(); } }
-
         public IRepository<YearlyExam> _YearlyExams { get { return GetStandardRepo<YearlyExam>(); } }
         public IRepository<StudentExam> _StudentExam { get { return GetStandardRepo<StudentExam>(); } }
+        public IRepository<QuestionTopic> _QuestionTopics { get { return GetStandardRepo<QuestionTopic>(); } }
+        public IRepository<Topic> _Topics { get { return GetStandardRepo<Topic>(); } }
 
         #endregion
 

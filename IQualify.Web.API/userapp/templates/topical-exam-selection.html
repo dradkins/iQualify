@@ -1,0 +1,46 @@
+﻿<!-- Page Content -->
+<div class="content">
+    <div class="col-lg-12">
+        <div class="block block-themed">
+            <div class="block-header bg-amethyst">
+                <h3 class="block-title">Topical Exam Selection</h3>
+            </div>
+            <div class="block-content block-content-full">
+                <div class="row">
+                    <div ng-hide="isExamStart">
+                        <form class="form-horizontal push-10-t push-10" name="totalQuestionsForm" ng-submit="getExam()">
+                            <div class="form-group">
+                                <div class="col-xs-4 col-sm-offset-4">
+                                    <label for="selected-topic">Select Topic *</label>
+                                    <select class="form-control" ng-model="selectedTopic" ng-options="topic.name for topic in topics" id="selected-topic" required></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-4 col-sm-offset-4">
+                                    <div class="form-material floating">
+                                        <input class="form-control" type="number" ng-model="noOfTotalQuestions" name="total-questions" min="5" max="{{selectedTopic.noOfQuestion}}" form-input />
+                                        <label for="total-questions">Enter number of questions *</label>
+                                    </div>
+                                    <small class="text-danger">* min 1 and max {{selectedTopic.noOfQuestion}} questions allowed</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-4 col-sm-offset-4 pull-right">
+                                    <button class="btn btn-sm btn-success" type="submit"><i class="fa fa-plus push-5-r"></i> OK</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="block-content bg-gray-lighter">
+                <div class="row items-push text-center">
+                    <div class="col-sm-4 col-md-offset-4">
+                        Preparation Exam
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Page Content -->

@@ -18,11 +18,12 @@ namespace IQualify.Contract
         #region Repositories
 
         IRepository<Subject> _Subjects { get; }
-
         IRepository<StudentSubject> _StudentSubjects { get; }
         IRepository<Question> _Questions { get; }
         IRepository<YearlyExam> _YearlyExams { get; }
         IRepository<StudentExam> _StudentExam { get; }
+        IRepository<QuestionTopic> _QuestionTopics { get; }
+        IRepository<Topic> _Topics { get; }
 
         #endregion
     }

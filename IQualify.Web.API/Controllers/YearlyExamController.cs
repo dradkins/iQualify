@@ -97,7 +97,8 @@ namespace IQualify.Web.API.Controllers
                 sExam.ExamTypeId = (int)ExamTypeEnum.YearlyExam;
                 sExam.StudentId = User.Identity.GetUserId();
                 sExam.SubjectId = yearlyExam.SubjectId;
-                sExam.TotalQuestions=model.
+                //sExam.TotalQuestions=model.
+                return Ok();
             }
             catch (Exception ex)
             {

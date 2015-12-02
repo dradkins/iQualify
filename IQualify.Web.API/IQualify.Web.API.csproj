@@ -223,11 +223,13 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
+    <Compile Include="Controllers\TopicalExamController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\YearlyExamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\URLHelper.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnswerModels.cs" />
@@ -236,6 +238,7 @@
     <Compile Include="Models\QuestionModels.cs" />
     <Compile Include="Models\SubjectModels.cs" />
     <Compile Include="Models\StudentYearlyExamModels.cs" />
+    <Compile Include="Models\StudentTopicalExamModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -833,6 +836,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\underscore.js" />
+    <Content Include="Scripts\underscore.min.js" />
     <Content Include="userapp\app.js" />
     <Content Include="userapp\controllers\confirmEmailController.js" />
     <Content Include="userapp\controllers\forgotPasswordController.js" />
@@ -841,6 +846,8 @@
     <Content Include="userapp\controllers\registerController.js" />
     <Content Include="userapp\controllers\registerController1.js" />
     <Content Include="userapp\controllers\subjectSelectionController.js" />
+    <Content Include="userapp\controllers\topicalExamController.js" />
+    <Content Include="userapp\controllers\topicalExamSelectionController.js" />
     <Content Include="userapp\directives\forgot-password-validate.js" />
     <Content Include="userapp\directives\form-input.js" />
     <Content Include="userapp\directives\login-validate.js" />
@@ -850,11 +857,14 @@
     <Content Include="userapp\modules.js" />
     <Content Include="userapp\services\answer.js" />
     <Content Include="userapp\services\currentuser.js" />
+    <Content Include="userapp\services\exam.js" />
+    <Content Include="userapp\services\examData.js" />
     <Content Include="userapp\services\formEncode.js" />
     <Content Include="userapp\services\oauth.js" />
     <Content Include="userapp\services\question.js" />
     <Content Include="userapp\services\registeration.js" />
     <Content Include="userapp\services\subject.js" />
+    <Content Include="userapp\services\topics.js" />
     <Content Include="userapp\templates\confirm-email.html" />
     <Content Include="userapp\templates\email-confirm.html" />
     <Content Include="userapp\templates\forgot-password.html" />
@@ -865,6 +875,8 @@
     <Content Include="userapp\templates\register1.html" />
     <Content Include="userapp\templates\reset-password.html" />
     <Content Include="userapp\templates\subject-selection.html" />
+    <Content Include="userapp\templates\topical-exam-selection.html" />
+    <Content Include="userapp\templates\topical-exam.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -881,6 +893,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\underscore.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
