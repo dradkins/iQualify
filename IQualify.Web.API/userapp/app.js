@@ -9,7 +9,8 @@
         "toastr",
         "angular-loading-bar",
         "LocalStorageModule",
-        "ng-fusioncharts"
+        "ng-fusioncharts",
+        "rzModule"
     ]);
 
     app.config(function ($stateProvider, $urlRouterProvider) {
@@ -25,6 +26,7 @@
             .state("preparation-exam", { url: "/preparation-exam", templateUrl: "/userapp/templates/preparation-exam.html", parent: "me", controller: "preparationExamController" })
             .state("topical-exam-selection", { url: "/topical-exam-selection", templateUrl: "/userapp/templates/topical-exam-selection.html", parent: "me", controller: "topicalExamSelectionController" })
             .state("topical-exam", { url: "/topical-exam/:topicId/:topicName", templateUrl: "/userapp/templates/topical-exam.html", parent: "me", controller: "topicalExamController" })
+            .state("topical-exam-result", { url: "/topical-exam-result/:resultId", templateUrl: "/userapp/templates/topical-exam-result.html", parent: "me", controller: "topicalExamResultController" })
         $urlRouterProvider.otherwise("/login");
     });
 

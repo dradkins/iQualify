@@ -9,6 +9,7 @@
     <link href="~/Content/assets/css/themes/amethyst.min.css" rel="stylesheet" />
     <link href="~/Content/angular-toastr.min.css" rel="stylesheet" />
     <link href="~/Content/loading-bar.min.css" rel="stylesheet" />
+    <link href="~/Content/rzslider.min.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -23,11 +24,15 @@
     <script src="~/Content/assets/js/core/jquery.placeholder.min.js"></script>
     <script src="~/Content/assets/js/core/js.cookie.min.js"></script>
     <script src="~/Content/assets/js/app.js"></script>
+
     <!-- Page JS Plugins -->
+
     <script src="~/Content/assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
     <script src="~/Scripts/underscore.min.js"></script>
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/FusionCharts/js/fusioncharts.js"></script>
+    <script src="~/Scripts/rzslider.min.js"></script>
+
     @*<script src="~/Scripts/FusionCharts/js/themes/fusioncharts.theme.carbon.js"></script>*@
     <script src="~/Scripts/FusionCharts/angular-fusioncharts.min.js"></script>
     <script src="~/Scripts/angular-ui-router.js"></script>
@@ -53,6 +58,7 @@
     <script src="~/userapp/services/exam.js"></script>
     <script src="~/userapp/services/examData.js"></script>
     <script src="~/userapp/services/topics.js"></script>
+    <script src="~/userapp/services/result.js"></script>
     <!-- Interceptors -->
     <script src="~/userapp/interceptors/addToken.js"></script>
     <!-- Controllers -->
@@ -64,6 +70,7 @@
     <script src="~/userapp/controllers/preparationExamController.js"></script>
     <script src="~/userapp/controllers/topicalExamController.js"></script>
     <script src="~/userapp/controllers/topicalExamSelectionController.js"></script>
+    <script src="~/userapp/controllers/topicalExamResultController.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

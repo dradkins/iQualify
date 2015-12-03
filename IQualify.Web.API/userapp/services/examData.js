@@ -7,17 +7,22 @@
             topicId: 0
         }
 
+        var subjectId = 1;
+        var startingTime;
+
         var questions = [];
-        var totalQuestions = 0;
 
         var setTopic = function (data) {
             topic.topicName = data.name,
             topic.topicId = data.topicId
         };
 
+        var getTopic = function () {
+            return topic;
+        }
+
         var setQuestions = function (data) {
             questions = data;
-            totalQuestions = data.length;
             angular.forEach(questions, function (item) {
                 item.isAttempted = false;
                 item.options = [];
@@ -38,10 +43,12 @@
         }
 
         return {
-            totalQuestions: totalQuestions,
             setQuestions: setQuestions,
             getQuestions: getQuestions,
-            setTopic: setTopic
+            setTopic: setTopic,
+            getTopic:getTopic,
+            subjectId: subjectId,
+            startingTime: startingTime
         };
 
     };
