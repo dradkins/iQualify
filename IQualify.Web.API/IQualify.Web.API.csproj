@@ -853,6 +853,8 @@
     <Content Include="userapp\controllers\topicalExamController.js" />
     <Content Include="userapp\controllers\topicalExamResultController.js" />
     <Content Include="userapp\controllers\topicalExamSelectionController.js" />
+    <Content Include="userapp\controllers\yearlyExamController.js" />
+    <Content Include="userapp\controllers\yearlyExamSelectionController.js" />
     <Content Include="userapp\directives\forgot-password-validate.js" />
     <Content Include="userapp\directives\form-input.js" />
     <Content Include="userapp\directives\login-validate.js" />
@@ -884,6 +886,8 @@
     <Content Include="userapp\templates\topical-exam-result.html" />
     <Content Include="userapp\templates\topical-exam-selection.html" />
     <Content Include="userapp\templates\topical-exam.html" />
+    <Content Include="userapp\templates\yearly-exam-selection.html" />
+    <Content Include="userapp\templates\yearly-exam.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

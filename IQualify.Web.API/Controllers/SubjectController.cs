@@ -53,6 +53,38 @@ namespace IQualify.Web.API.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("GetAllSubjects")]
+        public async Task<IHttpActionResult> GetAllSubjects()
+        {
+            try
+            {
+                var subjectsList = new List<UserSubjectModel>();
+                var subjects = await _Uow._Subjects
+                    .GetAll(x=>x.Active==true)
+                    .ToListAsync();
+
+                if (subjects != null)
+                {
+                    subjects.ForEach(s =>
+                        subjectsList.Add(new UserSubjectModel
+                        {
+                            SubjectClass = s.SubjectClass.GetValueOrDefault(),
+                            SubjectCode = s.SubjectCode,
+                            SubjectId = s.Id,
+                            SubjectName = s.Name,
+                            SubjectType = s.SubjectType.GetValueOrDefault()
+                        })
+                    );
+                }
+                return Ok(subjectsList);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
         [HttpPost]
         [Authorize]
         [Route("SaveUserSubjects")]

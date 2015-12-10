@@ -9,6 +9,13 @@
                         });
         }
 
+        var getAllSubjects = function () {
+            return $http.get("/api/subject/getAllSubjects")
+                        .then(function (response) {
+                            return response.data;
+                        });
+        }
+
         var saveUserSubject = function (data) {
             return $http.post("/api/subject/saveUserSubjects", data)
                         .then(function (response) {
@@ -18,7 +25,8 @@
 
         return {
             getAll: getAll,
-            saveUserSubject: saveUserSubject
+            saveUserSubject: saveUserSubject,
+            getAllSubjects: getAllSubjects
         };
 
     };

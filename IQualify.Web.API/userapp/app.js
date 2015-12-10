@@ -22,11 +22,13 @@
             .state("email-confirm", { url: "/email-confirm", templateUrl: "/userapp/templates/email-confirm.html" })
             .state("confirm-email", { url: "/confirm-email/:userId/:confirmationToken", templateUrl: "/userapp/templates/confirm-email.html", controller: "confirmEmailController" })
             .state("me", { url: "/me", templateUrl: "/userapp/templates/menu.html" })
-            .state("subject-selection", { url: "/subject-selection", templateUrl: "/userapp/templates/subject-selection.html", parent: "me", controller: "subjectSelectionController" })
-            .state("preparation-exam", { url: "/preparation-exam", templateUrl: "/userapp/templates/preparation-exam.html", parent: "me", controller: "preparationExamController" })
-            .state("topical-exam-selection", { url: "/topical-exam-selection", templateUrl: "/userapp/templates/topical-exam-selection.html", parent: "me", controller: "topicalExamSelectionController" })
-            .state("topical-exam", { url: "/topical-exam/:topicId/:topicName", templateUrl: "/userapp/templates/topical-exam.html", parent: "me", controller: "topicalExamController" })
-            .state("topical-exam-result", { url: "/topical-exam-result/:resultId", templateUrl: "/userapp/templates/topical-exam-result.html", parent: "me", controller: "topicalExamResultController" })
+                .state("subject-selection", { url: "/subject-selection", templateUrl: "/userapp/templates/subject-selection.html", parent: "me", controller: "subjectSelectionController" })
+                .state("preparation-exam", { url: "/preparation-exam", templateUrl: "/userapp/templates/preparation-exam.html", parent: "me", controller: "preparationExamController" })
+                .state("topical-exam-selection", { url: "/topical-exam-selection", templateUrl: "/userapp/templates/topical-exam-selection.html", parent: "me", controller: "topicalExamSelectionController" })
+                .state("topical-exam", { url: "/topical-exam/:topicId/:topicName", templateUrl: "/userapp/templates/topical-exam.html", parent: "me", controller: "topicalExamController" })
+                .state("topical-exam-result", { url: "/topical-exam-result/:resultId", templateUrl: "/userapp/templates/topical-exam-result.html", parent: "me", controller: "topicalExamResultController" })
+                .state("yearly-exam-selection", { url: "/yearly-exam-selection", templateUrl: "/userapp/templates/yearly-exam-selection.html", parent: "me", controller: "yearlyExamSelectionController" })
+                .state("yearly-exam", { url: "/yearly-exam/:yearlyExamId", templateUrl: "/userapp/templates/yearly-exam.html", parent: "me", controller: "yearlyExamController" })
         $urlRouterProvider.otherwise("/login");
     });
 

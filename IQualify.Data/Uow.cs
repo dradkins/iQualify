@@ -44,6 +44,7 @@ namespace DrNajeeb.Data
         public IRepository<StudentExam> _StudentExam { get { return GetStandardRepo<StudentExam>(); } }
         public IRepository<QuestionTopic> _QuestionTopics { get { return GetStandardRepo<QuestionTopic>(); } }
         public IRepository<Topic> _Topics { get { return GetStandardRepo<Topic>(); } }
+        public IRepository<YearlyExamQuestion> _YearlyExamQuestions { get { return GetStandardRepo<YearlyExamQuestion>(); } }
 
         #endregion
 
