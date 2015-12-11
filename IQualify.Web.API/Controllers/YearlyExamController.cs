@@ -172,7 +172,7 @@ namespace IQualify.Web.API.Controllers
                 }
                 studentExam.Percentage = (studentExam.CorrectAnswers / (double)studentExam.TotalQuestions) * 100.0;
                 studentExam.MarksObtained = 0;
-                studentExam.StudentTopicalExams = new List<StudentTopicalExam>();
+                studentExam.StudentYearlyExams = new List<StudentYearlyExam>();
                 studentExam.StudentYearlyExams.Add(new StudentYearlyExam
                 {
                     YearlyExamId = model.YearlyExamId
@@ -217,6 +217,8 @@ namespace IQualify.Web.API.Controllers
                 yearlyExamResult.TimeTaken = examResult.TimeTaken.GetValueOrDefault();
 
                 var yearlyExam = examResult.StudentYearlyExams.FirstOrDefault().YearlyExam;
+
+                yearlyExamResult.YearlyExam = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(yearlyExam.ExamMonth.GetValueOrDefault()) + " " + yearlyExam.ExamYear.GetValueOrDefault();
 
                 yearlyExamResult.ExpectedGrade = GetExpectedGrade(examResult, yearlyExam);
 

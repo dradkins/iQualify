@@ -18,6 +18,7 @@
         $scope.duration = 0;
 
         var solvedQuestions = [];
+        var yearlyExamId;
 
         $scope.saveAnswer = function (selectedAnswer) {
             solvedQuestions.push({
@@ -25,9 +26,9 @@
                 selectedAnswer: selectedAnswer
             });
             $scope.currentQuestion.isAttempted = true;
-            $timeout(function () {
+            //$timeout(function () {
                 gotoNextQuestion();
-            }, 1000)
+            //}, 1000)
         }
 
         $scope.finishExam = function () {
@@ -39,9 +40,9 @@
                 selectedAnswers: solvedQuestions,
                 subjectId: examData.subjectId,
                 examStartingTime: examData.startingTime,
-                topicId: $scope.topic.topicId
+                YearlyExamId: yearlyExamId
             };
-            exam.submitTopicalExam(completedExamData).then(onExamSubmission, onExamSubmissionError);
+            exam.submitYearlyExam(completedExamData).then(onExamSubmission, onExamSubmissionError);
         }
 
         $scope.$on("slideEnded", function () {
@@ -83,7 +84,7 @@
 
         var onExamSubmission = function (data) {
             toastr.success("exam finished");
-            $state.go("topical-exam-result", { "resultId": data });
+            $state.go("yearly-exam-result", { "resultId": data });
         }
 
         var onExamSubmissionError = function (error) {
@@ -120,7 +121,7 @@
         }
 
         var init = function () {
-            var yearlyExamId = $stateParams.yearlyExamId;
+            yearlyExamId = $stateParams.yearlyExamId;
             exam.getYearlyExamQuestions({ yearlyExamId: yearlyExamId }).then(onYearlyExam, onYearlyExamError);
         }
 

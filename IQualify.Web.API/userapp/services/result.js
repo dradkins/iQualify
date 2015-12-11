@@ -9,8 +9,16 @@
                         });
         }
 
+        var getYearlyExamResult = function (id) {
+            return $http.get("/api/YearlyExam/getYearlyExamResult", { params: { id: id } })
+                        .then(function (response) {
+                            return response.data;
+                        });
+        }
+
         return {
             getTopicalExamResult: getTopicalExamResult,
+            getYearlyExamResult: getYearlyExamResult
         };
 
     };

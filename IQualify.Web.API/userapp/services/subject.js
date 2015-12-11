@@ -16,6 +16,13 @@
                         });
         }
 
+        var getUserActivatedSubjects = function () {
+            return $http.get("/api/subject/GetStudentSubjects")
+                        .then(function (response) {
+                            return response.data;
+                        });
+        }
+
         var saveUserSubject = function (data) {
             return $http.post("/api/subject/saveUserSubjects", data)
                         .then(function (response) {
@@ -26,7 +33,8 @@
         return {
             getAll: getAll,
             saveUserSubject: saveUserSubject,
-            getAllSubjects: getAllSubjects
+            getAllSubjects: getAllSubjects,
+            getUserActivatedSubjects: getUserActivatedSubjects
         };
 
     };

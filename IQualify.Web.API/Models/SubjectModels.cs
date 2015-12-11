@@ -33,4 +33,11 @@ namespace IQualify.Web.API.Models
         public int SubjectClass { get; set; }
         public string SubjectCode { get; set; }
     }
+
+    public class UserActivatedSubjects
+    {
+        public string ClassName { get; set; }
+        public string SubjectName { get; set; }
+        public string ClassType { get; set; }
+    }
 }

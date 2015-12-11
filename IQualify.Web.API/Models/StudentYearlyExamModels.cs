@@ -79,5 +79,6 @@ namespace IQualify.Web.API.Models
         public double Percentage { get; set; }
         public int TimeTaken { get; set; }
         public string ExpectedGrade { get; set; }
+        public string YearlyExam { get; set; }
     }
 }

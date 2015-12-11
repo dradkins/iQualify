@@ -47,6 +47,17 @@
         var onSubjectsError = function (error) {
             console.log(error);
         }
+
+        var init = function () {
+            subject.getUserActivatedSubjects().then(function (data) {
+                $scope.activatedSubjects = data;
+            }, function (error) {
+                console.log(error);
+                toastr.error("Error while fetching your activated subjects");
+            });
+        }
+
+        init();
     };
 
     subjectSelectionController.$inject = ["$scope", "toastr", "subject"];

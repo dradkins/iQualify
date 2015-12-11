@@ -37,11 +37,11 @@ namespace IQualify.Web.API.Controllers
                     subjects.ForEach(s =>
                         subjectsList.Add(new UserSubjectModel
                         {
-                            SubjectClass=s.SubjectClass.GetValueOrDefault(),
-                            SubjectCode=s.SubjectCode,
-                            SubjectId=s.Id,
-                            SubjectName=s.Name,
-                            SubjectType=s.SubjectType.GetValueOrDefault()
+                            SubjectClass = s.SubjectClass.GetValueOrDefault(),
+                            SubjectCode = s.SubjectCode,
+                            SubjectId = s.Id,
+                            SubjectName = s.Name,
+                            SubjectType = s.SubjectType.GetValueOrDefault()
                         })
                     );
                 }
@@ -61,7 +61,7 @@ namespace IQualify.Web.API.Controllers
             {
                 var subjectsList = new List<UserSubjectModel>();
                 var subjects = await _Uow._Subjects
-                    .GetAll(x=>x.Active==true)
+                    .GetAll(x => x.Active == true)
                     .ToListAsync();
 
                 if (subjects != null)
@@ -107,6 +107,37 @@ namespace IQualify.Web.API.Controllers
                 }
                 await _Uow.CommitAsync();
                 return Ok();
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("GetStudentSubjects")]
+        public async Task<IHttpActionResult> GetStudentSubjects()
+        {
+            try
+            {
+                var activatedSubjectsList = new List<UserActivatedSubjects>();
+                var studentId = User.Identity.GetUserId();
+                var studentSubjects = await _Uow._StudentSubjects
+                    .GetAll(x => x.Active == true && x.StudentId == studentId)
+                    .Include(x => x.Subject)
+                    .ToListAsync();
+                foreach (var item in studentSubjects)
+                {
+                    activatedSubjectsList.Add(new UserActivatedSubjects
+                    {
+                        ClassName=Enum.GetName(typeof(SubjectClass), item.Subject.SubjectClass.GetValueOrDefault()),
+                        ClassType = Enum.GetName(typeof(SubjectType), item.Subject.SubjectType.GetValueOrDefault()),
+                        SubjectName=item.Subject.Name
+
+                    });
+                }
+                return Ok(activatedSubjectsList);
             }
             catch (Exception ex)
             {

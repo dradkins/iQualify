@@ -34,11 +34,19 @@
                         });
         }
 
+        var submitYearlyExam = function (data) {
+            return $http.post("/api/YearlyExam/saveExam", data)
+                        .then(function (response) {
+                            return response.data;
+                        });
+        }
+
         return {
             getTopicalExamQuestions: getTopicalExamQuestions,
             submitTopicalExam: submitTopicalExam,
             getYearlyExams: getYearlyExams,
-            getYearlyExamQuestions: getYearlyExamQuestions
+            getYearlyExamQuestions: getYearlyExamQuestions,
+            submitYearlyExam: submitYearlyExam
         };
 
     };
