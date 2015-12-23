@@ -39,7 +39,6 @@
         }
 
         var onSubjects = function (data) {
-            console.log(data);
             $scope.subjects = data;
             $scope.loadingYearlyExams = false;
         }

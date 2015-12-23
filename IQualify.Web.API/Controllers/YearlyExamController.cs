@@ -65,12 +65,17 @@ namespace IQualify.Web.API.Controllers
         {
             try
             {
+                var yearlyExam = await _Uow._YearlyExams.GetByIdAsync(yearlyExamId);
+                if (yearlyExam == null)
+                {
+                    return NotFound();
+                }
                 var yearlyExamViewModel = new YearlyExamStartingViewModel();
                 var yearlyExamQuestions = new List<YearlyExamQuestionViewModel>();
                 var questions = await _Uow._YearlyExamQuestions
                     .GetAll(x => x.YearlyExamId == yearlyExamId)
-                    .Include(x => x.YearlyExam)
                     .OrderBy(x => x.QuestionOrder)
+                    .Include(x=>x.YearlyExam)
                     .Include(x => x.Question)
                     .Select(x => new
                     {
@@ -79,7 +84,6 @@ namespace IQualify.Web.API.Controllers
                         NoOfOptions = x.Question.NoOfOptions ?? 4,
                         QuestionOrder = x.QuestionOrder,
                         CorrectAnswer = x.Question.CorrectAnswer,
-                        Duration = x.YearlyExam.Duration,
                     })
                     .ToListAsync();
                 if (questions == null)
@@ -106,7 +110,7 @@ namespace IQualify.Web.API.Controllers
 
                 }
                 yearlyExamViewModel.YearlyExamQuestions = yearlyExamQuestions;
-                yearlyExamViewModel.Duration = questions.FirstOrDefault().Duration.GetValueOrDefault();
+                yearlyExamViewModel.Duration = yearlyExam.Duration.GetValueOrDefault();
                 return Ok(yearlyExamViewModel);
             }
             catch (Exception ex)
@@ -187,81 +191,5 @@ namespace IQualify.Web.API.Controllers
                 return InternalServerError(ex);
             }
         }
-
-        [HttpGet]
-        [Route("GetYEarlyExamResult")]
-        public async Task<IHttpActionResult> GetYEarlyExamResult(int id)
-        {
-            try
-            {
-                var examResult = await _Uow._StudentExam.GetAll(x => x.Id == id)
-                    .Include(x => x.StudentYearlyExams)
-                    .Include(x => x.Subject)
-                    .Include(x => x.StudentYearlyExams.Select(y => y.YearlyExam))
-                    .FirstOrDefaultAsync();
-                if (examResult == null)
-                {
-                    return NotFound();
-                }
-                if (examResult.StudentId != User.Identity.GetUserId())
-                {
-                    return BadRequest("You are not allowed to see that result");
-                }
-
-                var yearlyExamResult = new YearlyExamResultViewModel();
-                yearlyExamResult.CorrectAnswers = examResult.CorrectAnswers.GetValueOrDefault();
-                yearlyExamResult.ExamDateTime = examResult.ExamDateTime.GetValueOrDefault();
-                yearlyExamResult.Percentage = examResult.Percentage.GetValueOrDefault();
-                yearlyExamResult.Subject.SubjectId = examResult.Subject.Id;
-                yearlyExamResult.Subject.SubjectName = examResult.Subject.Name;
-                yearlyExamResult.TimeTaken = examResult.TimeTaken.GetValueOrDefault();
-
-                var yearlyExam = examResult.StudentYearlyExams.FirstOrDefault().YearlyExam;
-
-                yearlyExamResult.YearlyExam = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(yearlyExam.ExamMonth.GetValueOrDefault()) + " " + yearlyExam.ExamYear.GetValueOrDefault();
-
-                yearlyExamResult.ExpectedGrade = GetExpectedGrade(examResult, yearlyExam);
-
-                yearlyExamResult.TotalQuestions = examResult.TotalQuestions.GetValueOrDefault();
-                return Ok(yearlyExamResult);
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(ex);
-            }
-        }
-
-
-        #region Helpers
-
-        private string GetExpectedGrade(StudentExam examResult, YearlyExam yearlyExam)
-        {
-            if (examResult.Percentage >= yearlyExam.AGradePercent)
-            {
-                return "A";
-            }
-            else if (examResult.Percentage >= yearlyExam.BGradePercent)
-            {
-                return "B";
-            }
-            else if (examResult.Percentage >= yearlyExam.CGradePercent)
-            {
-                return "C";
-            }
-            else if (examResult.Percentage >= yearlyExam.DGradePercent)
-            {
-                return "D";
-            }
-            else if (examResult.Percentage >= yearlyExam.EGradePercent)
-            {
-                return "E";
-            }
-            else
-            {
-                return "F";
-            }
-        }
-
-        #endregion
     }
 }

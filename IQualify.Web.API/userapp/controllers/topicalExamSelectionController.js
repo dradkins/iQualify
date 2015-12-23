@@ -3,11 +3,19 @@
 (function (module) {
 
     /***** Topical Exam Selection Controller *****/
-    var topicalExamSelectionController = function ($scope, $state, toastr, exam, examData, topics) {
+    var topicalExamSelectionController = function ($scope, $state, toastr, exam, examData, topics, subject) {
 
         $scope.noOfTotalQuestions;
         $scope.topics = [];
+        $scope.subjects = [];
+        $scope.selectedSubject;
         $scope.selectedTopic;
+        $scope.loadingTopics = true;
+
+        $scope.getTopics = function () {
+            $scope.loadingTopics = true;
+            topics.getBySubject($scope.selectedSubject.subjectId).then(onTopics, onTopicsError);
+        }
 
         $scope.getExam = function () {
             exam.getTopicalExamQuestions({ topicId: $scope.selectedTopic.topicId, totalQuestions: $scope.noOfTotalQuestions })
@@ -16,6 +24,7 @@
 
         var onExam = function (data) {
             examData.setTopic($scope.selectedTopic);
+            examData.subjectId = $scope.selectedSubject.subjectId;
             $state.go("topical-exam", { "topicId": $scope.selectedTopic.topicId, "topicName": $scope.selectedTopic.urlLink });
         }
 
@@ -25,24 +34,36 @@
         }
 
         var onTopics = function (data) {
+            $scope.loadingTopics = false;
             $scope.topics = data;
             $scope.selectedTopic = $scope.topics[0];
         }
 
         var onTopicsError = function (error) {
+            $scope.loadingTopics = false;
             console.log(error);
             toastr.error("Unable to load topics at this time.")
         }
 
+        var onSubjects = function (data) {
+            $scope.subjects = data;
+            $scope.loadingTopics = false;
+        }
+
+        var onSubjectsError = function (error) {
+            console.log(error);
+            toastr.error("Unable to load subjects at this time.")
+        }
+
         var init = function () {
-            topics.getBySubject(1).then(onTopics, onTopicsError);
+            subject.getAllSubjects().then(onSubjects, onSubjectsError);
         }
 
         init();
 
     }
 
-    topicalExamSelectionController.$inject = ["$scope", "$state", "toastr", "exam", "examData", "topics"];
+    topicalExamSelectionController.$inject = ["$scope", "$state", "toastr", "exam", "examData", "topics", "subject"];
     module.controller("topicalExamSelectionController", topicalExamSelectionController);
 
 }(angular.module("iQualify.controllers")));

@@ -31,6 +31,7 @@ namespace IQualify.Web.API.Models
         {
             YearlyExamQuestions = new List<YearlyExamQuestionViewModel>();
         }
+
         public DateTime ExamStartingTime { get { return DateTime.UtcNow; } }
         public int Duration { get; set; }
         public List<YearlyExamQuestionViewModel> YearlyExamQuestions { get; set; }
@@ -71,7 +72,7 @@ namespace IQualify.Web.API.Models
         {
             Subject = new UserSubjectModel();
         }
-
+        public int Id { get; set; }
         public UserSubjectModel Subject { get; set; }
         public DateTime ExamDateTime { get; set; }
         public int TotalQuestions { get; set; }

@@ -7,7 +7,13 @@
             topicId: 0
         }
 
-        var subjectId = 1;
+        var subject = {
+            id: 0,
+            name: "",
+        };
+
+        var subjectId;
+
         var startingTime;
 
         var questions = [];
@@ -33,6 +39,15 @@
             });
         }
 
+        var setSubject = function (s) {
+            subject.id = s.subjectId;
+            subject.name = s.subjectName;
+        }
+
+        var getSubject = function () {
+            return subject;
+        }
+
         var getQuestions = function () {
             return questions;
         }
@@ -46,7 +61,7 @@
             setQuestions: setQuestions,
             getQuestions: getQuestions,
             setTopic: setTopic,
-            getTopic:getTopic,
+            getTopic: getTopic,
             subjectId: subjectId,
             startingTime: startingTime
         };

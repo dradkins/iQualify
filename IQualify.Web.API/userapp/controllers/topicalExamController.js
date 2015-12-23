@@ -41,6 +41,7 @@
                 examStartingTime: examData.startingTime,
                 topicId: $scope.topic.topicId
             };
+            console.log(completedExamData);
             exam.submitTopicalExam(completedExamData).then(onExamSubmission, onExamSubmissionError);
         }
 

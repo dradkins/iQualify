@@ -30,6 +30,9 @@
                 .state("yearly-exam-selection", { url: "/yearly-exam-selection", templateUrl: "/userapp/templates/yearly-exam-selection.html", parent: "me", controller: "yearlyExamSelectionController" })
                 .state("yearly-exam", { url: "/yearly-exam/:yearlyExamId", templateUrl: "/userapp/templates/yearly-exam.html", parent: "me", controller: "yearlyExamController" })
                 .state("yearly-exam-result", { url: "/yearly-exam-result/:resultId", templateUrl: "/userapp/templates/yearly-exam-result.html", parent: "me", controller: "yearlyExamResultController" })
+                //.state("yearly-exam-result", { url: "/yearly-exam-result/:resultId", templateUrl: "/userapp/templates/yearly-exam-result.html", parent: "me", controller: "yearlyExamResultController" })
+                .state("yearly-results", { url: "/yearly-results", templateUrl: "/userapp/templates/yearly-results.html", parent: "me", controller: "yearlyResultsController" })
+                .state("topical-results", { url: "/topical-results", templateUrl: "/userapp/templates/topical-results.html", parent: "me", controller: "topicalResultsController" })
         $urlRouterProvider.otherwise("/login");
     });
 

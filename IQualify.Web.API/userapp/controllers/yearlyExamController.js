@@ -93,11 +93,14 @@
         }
 
         var onYearlyExam = function (data) {
+            console.log(data);
             $scope.questions = examData.getQuestions();
+            console.log($scope.questions);
             $scope.totalQuestions = $scope.questions.length;
             $scope.duration = data.duration;
             if ($scope.totalQuestions == 0) {
                 $state.go("yearly-exam-selection");
+                toastr.info("No questions found in this yearly exam");
                 return false;
             }
             $scope.currentQuestion = $scope.questions[0];

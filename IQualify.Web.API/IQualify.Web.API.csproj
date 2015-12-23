@@ -222,6 +222,7 @@
     <Compile Include="Controllers\BaseAPIController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
+    <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Controllers\TopicalExamController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -811,6 +812,7 @@
     <Content Include="Content\assets\less\themes\modern.less" />
     <Content Include="Content\assets\less\themes\smooth.less" />
     <Content Include="Content\assets\less\variables.less" />
+    <None Include="Properties\PublishProfiles\iQualify Exam.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\FusionCharts\angular-fusioncharts.min.js" />
     <Content Include="Scripts\FusionCharts\js\fusioncharts.charts.js" />
@@ -853,9 +855,11 @@
     <Content Include="userapp\controllers\topicalExamController.js" />
     <Content Include="userapp\controllers\topicalExamResultController.js" />
     <Content Include="userapp\controllers\topicalExamSelectionController.js" />
+    <Content Include="userapp\controllers\topicalResultsController.js" />
     <Content Include="userapp\controllers\yearlyExamController.js" />
     <Content Include="userapp\controllers\yearlyExamResultController.js" />
     <Content Include="userapp\controllers\yearlyExamSelectionController.js" />
+    <Content Include="userapp\controllers\yearlyResultsController.js" />
     <Content Include="userapp\directives\forgot-password-validate.js" />
     <Content Include="userapp\directives\form-input.js" />
     <Content Include="userapp\directives\login-validate.js" />
@@ -887,9 +891,11 @@
     <Content Include="userapp\templates\topical-exam-result.html" />
     <Content Include="userapp\templates\topical-exam-selection.html" />
     <Content Include="userapp\templates\topical-exam.html" />
+    <Content Include="userapp\templates\topical-results.html" />
     <Content Include="userapp\templates\yearly-exam-result.html" />
     <Content Include="userapp\templates\yearly-exam-selection.html" />
     <Content Include="userapp\templates\yearly-exam.html" />
+    <Content Include="userapp\templates\yearly-results.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
