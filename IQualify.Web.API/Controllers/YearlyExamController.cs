@@ -145,7 +145,7 @@ namespace IQualify.Web.API.Controllers
                 studentExam.ExamDateTime = model.ExamStartingTime;
                 studentExam.ExamTypeId = (int)ExamTypeEnum.YearlyExam;
                 studentExam.StudentId = User.Identity.GetUserId();
-                studentExam.SubjectId = model.SubjectId;
+                studentExam.SubjectId = yearlyExam.SubjectId;
                 studentExam.TimeTaken = (int)Math.Round((DateTime.UtcNow - model.ExamStartingTime).TotalMinutes);
                 studentExam.TotalQuestions = model.SelectedAnswers.Count;
                 studentExam.WrongAnswers = 0;

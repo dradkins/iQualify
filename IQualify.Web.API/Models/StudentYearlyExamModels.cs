@@ -82,4 +82,20 @@ namespace IQualify.Web.API.Models
         public string ExpectedGrade { get; set; }
         public string YearlyExam { get; set; }
     }
+
+    public class YearlyExamAnalysisViewModel
+    {
+        public YearlyExamAnalysisViewModel()
+        {
+            Percentage = new List<double>();
+            Performance = new List<double>();
+            LastExamResult = new YearlyExamResultViewModel();
+        }
+
+        public List<double> Percentage { get; set; }
+        public List<double> Performance { get; set; }
+        public YearlyExamResultViewModel LastExamResult { get; set; }
+        public double LastExamPerformance { get; set; }
+        public double LastPerformanceStatus { get; set; }
+    }
 }

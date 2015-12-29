@@ -218,6 +218,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AnalysisController.cs" />
     <Compile Include="Controllers\AnswersController.cs" />
     <Compile Include="Controllers\BaseAPIController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -856,6 +857,7 @@
     <Content Include="userapp\controllers\topicalExamResultController.js" />
     <Content Include="userapp\controllers\topicalExamSelectionController.js" />
     <Content Include="userapp\controllers\topicalResultsController.js" />
+    <Content Include="userapp\controllers\yearlyExamAnalysisController.js" />
     <Content Include="userapp\controllers\yearlyExamController.js" />
     <Content Include="userapp\controllers\yearlyExamResultController.js" />
     <Content Include="userapp\controllers\yearlyExamSelectionController.js" />
@@ -867,6 +869,7 @@
     <Content Include="userapp\directives\register-validate1.js" />
     <Content Include="userapp\interceptors\addToken.js" />
     <Content Include="userapp\modules.js" />
+    <Content Include="userapp\services\analysis.js" />
     <Content Include="userapp\services\answer.js" />
     <Content Include="userapp\services\currentuser.js" />
     <Content Include="userapp\services\exam.js" />
@@ -892,6 +895,7 @@
     <Content Include="userapp\templates\topical-exam-selection.html" />
     <Content Include="userapp\templates\topical-exam.html" />
     <Content Include="userapp\templates\topical-results.html" />
+    <Content Include="userapp\templates\yearly-exam-analysis.html" />
     <Content Include="userapp\templates\yearly-exam-result.html" />
     <Content Include="userapp\templates\yearly-exam-selection.html" />
     <Content Include="userapp\templates\yearly-exam.html" />
