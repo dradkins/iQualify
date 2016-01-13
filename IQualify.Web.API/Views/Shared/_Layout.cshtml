@@ -1,29 +1,64 @@
 ﻿<!DOCTYPE html>
 <html ng-app="iQualify">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
-    <title>Contact Manager</title>
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
-    <link rel="stylesheet" id="css-main" href="~/Content/assets/css/oneui.css">
-    <link href="~/Content/assets/css/themes/amethyst.min.css" rel="stylesheet" />
-    <link href="~/Content/angular-toastr.min.css" rel="stylesheet" />
-    <link href="~/Content/loading-bar.min.css" rel="stylesheet" />
-    <link href="~/Content/rzslider.min.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>iQualify - O/A Level Learning System</title>
+    <!-- Favicons-->
+    <link rel="icon" href="~/Content/lib/images/favicon/favicon-32x32.png" sizes="32x32">
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="~/Content/lib/images/favicon/apple-touch-icon-152x152.png">
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#00bcd4">
+    <meta name="msapplication-TileImage" content="~/Content/lib/images/favicon/mstile-144x144.png">
+    <!-- For Windows Phone -->
+    <!-- CORE CSS-->
+    <link href="~/Content/lib/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="~/Content/lib/css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <!-- Custome CSS-->
+    <link href="~/Content/lib/css/custom/custom-style.css" type="text/css" rel="stylesheet" media="screen,projection">
+
+    <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
+    <link href="~/Content/lib/js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="~/Content/lib/js/plugins/jvectormap/jquery-jvectormap.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="~/Content/lib/js/plugins/chartist-js/chartist.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+
+    <style type="text/css">
+        .input-field div.error {
+            position: relative;
+            top: -1rem;
+            left: 0rem;
+            font-size: 0.8rem;
+            color: #FF4081;
+            -webkit-transform: translateY(0%);
+            -ms-transform: translateY(0%);
+            -o-transform: translateY(0%);
+            transform: translateY(0%);
+        }
+    </style>
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body class="">
+
+    <!-- Start Page Loading -->
+    @*<div id="loader-wrapper">
+            <div id="loader"></div>
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+        </div>*@
+    <!-- End Page Loading -->
     @RenderBody()
-    <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
-    <script src="~/Content/assets/js/core/jquery.min.js"></script>
-    <script src="~/Content/assets/js/core/bootstrap.min.js"></script>
-    <script src="~/Content/assets/js/core/jquery.slimscroll.min.js"></script>
-    <script src="~/Content/assets/js/core/jquery.scrollLock.min.js"></script>
-    <script src="~/Content/assets/js/core/jquery.appear.min.js"></script>
-    <script src="~/Content/assets/js/core/jquery.countTo.min.js"></script>
-    <script src="~/Content/assets/js/core/jquery.placeholder.min.js"></script>
-    <script src="~/Content/assets/js/core/js.cookie.min.js"></script>
-    <script src="~/Content/assets/js/app.js"></script>
+
+    <script type="text/javascript" src="~/Content/lib/js/plugins/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="~/Content/lib/js/materialize.js"></script>
+    <script type="text/javascript" src="~/Content/lib/js/plugins/prism/prism.js"></script>
+    <script type="text/javascript" src="~/Content/lib/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script type="text/javascript" src="~/Content/lib/js/plugins.js"></script>
+    <script type="text/javascript" src="~/Content/lib/js/custom-script.js"></script>
 
     <!-- Page JS Plugins -->
 

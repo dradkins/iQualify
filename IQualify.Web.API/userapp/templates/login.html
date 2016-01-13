@@ -1,5 +1,5 @@
 ﻿<!-- Login Content -->
-<div class="content overflow-hidden">
+<!--<div class="content overflow-hidden">
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
             <div class="block block-themed animated fadeIn">
@@ -62,4 +62,50 @@
 </div>
 <div class="push-10-t text-center animated fadeInUp">
     <small class="text-muted font-w600"><span class="js-year-copy"></span> &copy; iQualify</small>
+</div>-->
+
+<div id="login-page" class="row">
+    <div class="col s12 z-depth-4 card-panel">
+        <form class="login-form" name="loginForm" ng-submit="login('#loginForm', loginForm)" id="loginForm" login-validate>
+            <div class="row">
+                <div class="input-field col s12 center">
+                    <img src="Content/lib/images/login-logo.png" alt="" class="circle responsive-img valign profile-image-login">
+                    <p class="center login-form-text">O/A Level Learning System</p>
+                </div>
+            </div>
+            <div class="row margin">
+                <div class="input-field col s12">
+                    <i class="mdi-social-person-outline prefix"></i>
+                    <input type="text" id="login-username" name="login-username" ng-model="username" form-input>
+                    <label for="username" class="center-align">Username</label>
+                </div>
+            </div>
+            <div class="row margin">
+                <div class="input-field col s12">
+                    <i class="mdi-action-lock-outline prefix"></i>
+                    <input type="password" id="login-password" name="login-password" ng-model="password" form-input>
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m12 l12  login-text">
+                    <input type="checkbox" id="remember-me" />
+                    <label for="remember-me">Remember me</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light col s12" type="submit"><i class="si si-login pull-right"></i> Log in</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6 m6 l6">
+                    <p class="margin medium-small"><a ui-sref="register">Register Now!</a></p>
+                </div>
+                <div class="input-field col s6 m6 l6">
+                    <p class="margin right-align medium-small"><a ui-sref="forgot-password">Forgot password ?</a></p>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>

@@ -5,10 +5,20 @@
         return {
             link: function (scope, element) {
                 jQuery(element).validate({
-                    errorClass: 'help-block text-right animated fadeInDown',
+                    //errorClass: 'help-block text-right animated fadeInDown',
+                    //errorElement: 'div',
+                    //errorPlacement: function (error, e) {
+                    //    jQuery(e).parents('.form-group .form-material').append(error);
+                    //},
+                    errorClass: 'error',
                     errorElement: 'div',
-                    errorPlacement: function (error, e) {
-                        jQuery(e).parents('.form-group .form-material').append(error);
+                    errorPlacement: function (error, element) {
+                        var placement = $(element).data('error');
+                        if (placement) {
+                            $(placement).append(error)
+                        } else {
+                            error.insertAfter(element);
+                        }
                     },
                     highlight: function (e) {
                         jQuery(e).closest('.form-group').removeClass('has-error').addClass('has-error');

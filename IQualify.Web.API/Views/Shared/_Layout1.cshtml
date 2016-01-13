@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html ng-app="iQualify">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+    <title>Contact Manager</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+    <link rel="stylesheet" id="css-main" href="~/Content/assets/css/oneui.css">
+    <link href="~/Content/assets/css/themes/amethyst.min.css" rel="stylesheet" />
+    <link href="~/Content/angular-toastr.min.css" rel="stylesheet" />
+    <link href="~/Content/loading-bar.min.css" rel="stylesheet" />
+    <link href="~/Content/rzslider.min.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @RenderBody()
+    <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
+    <script src="~/Content/assets/js/core/jquery.min.js"></script>
+    <script src="~/Content/assets/js/core/bootstrap.min.js"></script>
+    <script src="~/Content/assets/js/core/jquery.slimscroll.min.js"></script>
+    <script src="~/Content/assets/js/core/jquery.scrollLock.min.js"></script>
+    <script src="~/Content/assets/js/core/jquery.appear.min.js"></script>
+    <script src="~/Content/assets/js/core/jquery.countTo.min.js"></script>
+    <script src="~/Content/assets/js/core/jquery.placeholder.min.js"></script>
+    <script src="~/Content/assets/js/core/js.cookie.min.js"></script>
+    <script src="~/Content/assets/js/app.js"></script>
+
+    <!-- Page JS Plugins -->
+
+    <script src="~/Content/assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/Scripts/underscore.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/FusionCharts/js/fusioncharts.js"></script>
+    <script src="~/Scripts/FusionCharts/js/themes/fusioncharts.theme.fint.js"></script>
+    <script src="~/Scripts/rzslider.min.js"></script>
+
+    @*<script src="~/Scripts/FusionCharts/js/themes/fusioncharts.theme.carbon.js"></script>*@
+    <script src="~/Scripts/FusionCharts/angular-fusioncharts.min.js"></script>
+    <script src="~/Scripts/angular-ui-router.js"></script>
+    <script src="~/Scripts/angular-toastr.tpls.min.js"></script>
+    <script src="~/Scripts/loading-bar.min.js"></script>
+    <script src="~/Scripts/angular-local-storage.js"></script>
+    <!-- Module Files -->
+    <script src="~/userapp/modules.js"></script>
+    <script src="~/userapp/app.js"></script>
+    <!-- Directives -->
+    <script src="~/userapp/directives/form-input.js"></script>
+    <script src="~/userapp/directives/login-validate.js"></script>
+    <script src="~/userapp/directives/register-validate.js"></script>
+    <script src="~/userapp/directives/forgot-password-validate.js"></script>
+    <!-- Services -->
+    <script src="~/userapp/services/formEncode.js"></script>
+    <script src="~/userapp/services/currentUser.js"></script>
+    <script src="~/userapp/services/oauth.js"></script>
+    <script src="~/userapp/services/registeration.js"></script>
+    <script src="~/userapp/services/subject.js"></script>
+    <script src="~/userapp/services/answer.js"></script>
+    <script src="~/userapp/services/question.js"></script>
+    <script src="~/userapp/services/exam.js"></script>
+    <script src="~/userapp/services/examData.js"></script>
+    <script src="~/userapp/services/topics.js"></script>
+    <script src="~/userapp/services/result.js"></script>
+    <script src="~/userapp/services/analysis.js"></script>
+    <!-- Interceptors -->
+    <script src="~/userapp/interceptors/addToken.js"></script>
+    <!-- Controllers -->
+    <script src="~/userapp/controllers/loginController.js"></script>
+    <script src="~/userapp/controllers/registerController.js"></script>
+    <script src="~/userapp/controllers/forgotPasswordController.js"></script>
+    <script src="~/userapp/controllers/confirmEmailController.js"></script>
+    <script src="~/userapp/controllers/subjectSelectionController.js"></script>
+    <script src="~/userapp/controllers/preparationExamController.js"></script>
+    <script src="~/userapp/controllers/topicalExamController.js"></script>
+    <script src="~/userapp/controllers/topicalExamSelectionController.js"></script>
+    <script src="~/userapp/controllers/topicalExamResultController.js"></script>
+    <script src="~/userapp/controllers/yearlyExamSelectionController.js"></script>
+    <script src="~/userapp/controllers/yearlyExamController.js"></script>
+    <script src="~/userapp/controllers/yearlyExamResultController.js"></script>
+    <script src="~/userapp/controllers/topicalResultsController.js"></script>
+    <script src="~/userapp/controllers/yearlyResultsController.js"></script>
+    <script src="~/userapp/controllers/yearlyExamAnalysisController.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
